@@ -19,6 +19,7 @@
 		<h1 class=title id=maintitle>Camagru</h1>
 		<div class="login">
 			<h2>Log In</h2>
+			<!--START HERE-->
 		</div>
 	</body>
 </html>
