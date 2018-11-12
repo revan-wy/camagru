@@ -1,63 +1,65 @@
+/*unpurged*/
+
 @media screen and (max-width: 660px){
 	.login, .inscription { padding: 1rem 2rem 1rem 2rem !important;}
-  }
+}
   
-  body {
+body {
 	display: flex;
 	vertical-align: middle;
 	align-items: center;
 	flex-direction: column;
-  }
+}
   
-  #maintitle {
+#maintitle {
 	font-size: 5rem;
-  }
+}
   
-  h2 {
+h2 {
 	color: #787878;
-  }
+}
   
-  input {
+input {
 	width: 20rem;
 	outline:none;
-  }
+}
   
-  .button {
+.button {
 	cursor: pointer;
 	border: solid 1px transparent;
 	background-color: #16A085;
 	color: #fff;
 	outline:none;
-  }
+}
   
-  .button:hover {
+.button:hover {
 	background-color: #18b294;
-  }
+}
   
-  .login, .inscription {
+.login, .inscription {
 	border: 2rem solid #edd15a;
 	padding: 3rem 9rem 3rem 9rem;
 	background-color: #fff099;
-  }
+}
   
-  .inscription {
+.inscription {
 	margin-top: 2rem;
-  }
+}
   
-  #forgot, #galleryaccess {
+#forgot, #galleryaccess {
 	text-decoration: none;
 	color: #7F8C8D;
-  }
+}
   
-  .galleryaccess {
+.galleryaccess {
 	margin-top: 1rem;
 	margin-bottom: 1rem;
-  }
+}
   
-  #forgot:hover, #galleryaccess:hover {
+#forgot:hover, #galleryaccess:hover {
 	color: #686f70;
-  }
+}
   
-  #buttonforgot {
+#buttonforgot {
 	margin-top: 1rem;
-  }
+}
