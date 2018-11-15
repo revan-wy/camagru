@@ -6,13 +6,14 @@
 	class Users {
 
 		private $db;
-		private 
-		private 
-		private 
-		private 
-		private 
-		public 
-
+		private $login;
+		private $passwd;
+		private $passwdVerif;
+		private $email;
+		private $token;
+		public $message;
+	
+		
 	}
 
 ?>
