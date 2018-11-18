@@ -1,4 +1,4 @@
-<?php //untested and incomplete
+<?php //untested
 
 //remove before flight
 ini_set('display_errors', 'On');
