@@ -1,7 +1,7 @@
-<?php //untested and incomplete
+<?php //untested
 
 	//remove before flight
-	ini_set('display_errors', 'On')
+	//ini_set('display_errors', 'On')
 
 	session_start();
 	require_once '../class/users.class.php'; //file incomplete
@@ -45,6 +45,39 @@
 				}
 			}
 		?>
-
+		<div class="inscription">
+			<h2>Register</h2>
+			<form class="" action="#" method="post">
+				Login<br /><input type="text" name="new_login" value="" maxlength=30><br />
+				Password<br /><input type="password" name="new_passwd" value="" maxlength=50><br />
+				Confirm Password<br /><input type="password" name="new_passwd_verif" value="" maxlength=50><br />
+				Mail<br /><input type="email" name="new_email" value="" maxlength=255><br /><br />
+				<input class="button" type="submit" name="submit_new" value="OK">
+			</form>
+		</div>
+		<div class="galleryaccess">
+			<a href="gallery.php" id="galleryaccess">Access gallery without login</a>
+		</div>
+		<?php
+			if (!empty(htmlentities($_POST['new_login'])) and !empty($_POST['new_passwd']) and !empty($_POST['new_passwd_verif']) and !empty(htmlentities($_POST['new_email'])) and $_POST['submit_new'] == "OK")
+			{
+				$new_login = trim(htmlentities($_POST['new_login']));
+				$new_email = trim(htmlentities($_POST['new_email']));
+				$db = new Users($new_login, $_POST['new_passwd'], $_POST['new_passed_verif'], $new_email, "");
+				$db->sendConfirmationUser();
+				if ($db->message)
+					echo '<div style="color:red;">'.$db->message.'</div>';
+			}
+			else if ($_POST['submit_new'] == "OK")
+				echo '<div style="color:red;">Please complete all the fields.</div>';
+			else if ($_GET['q'] != "")
+			{
+				$token = $_GET['q'];
+				$db = new Users("", "", "", "", $token);
+				$db->confirmUser();
+				if ($db->message)
+					echo '<div style="color:red;">'.$db->message.'</div>';
+			}
+		?>
 	</body>
 </html>
