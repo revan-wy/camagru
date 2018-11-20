@@ -1,7 +1,7 @@
 /*unpurged*/
 
 @media screen and (max-width: 660px){
-	.login, .inscription { padding: 1rem 2rem 1rem 2rem !important;}
+	.login, .register { padding: 1rem 2rem 1rem 2rem !important;}
 }
   
 body {
@@ -36,13 +36,13 @@ input {
 	background-color: #18b294;
 }
   
-.login, .inscription {
+.login, .register {
 	border: 2rem solid #edd15a;
 	padding: 3rem 9rem 3rem 9rem;
 	background-color: #fff099;
 }
   
-.inscription {
+.register {
 	margin-top: 2rem;
 }
   

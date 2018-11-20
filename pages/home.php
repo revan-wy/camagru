@@ -45,7 +45,7 @@
 				}
 			}
 		?>
-		<div class="inscription">
+		<div class="register">
 			<h2>Register</h2>
 			<form class="" action="#" method="post">
 				Login<br /><input type="text" name="new_login" value="" maxlength=30><br />
