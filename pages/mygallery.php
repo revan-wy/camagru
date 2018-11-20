@@ -11,7 +11,7 @@
 
 <html>
 	<head>
-		<meta charset="utf-8" name="viewport" content="width=defice-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 		<link rel="stylesheet" href="../public/css/gallery.css">
 		<link rel="stylesheet" href="../public/css/headerfooter.css">
 		<title>Camagru Main Gallery</title>
@@ -31,7 +31,7 @@
 				<? elseif ($page > $nbpage || preg_match('/^[0-9]*$/', $page) == 0):
 					echo '<script>location.replace("mygallery.php?page=1")</script>';
 				else:
-					$pics = $pic->getPicturesByPageByLogin((($page - 1) * $nbpibbypage), $nbpicbypage);
+					$pics = $pic->getPicturesByPageByLogin((($page - 1) * $nbpicbypage), $nbpicbypage);
 					require '../class/likes.class.php';
 					require '../class/comments.class.php';
 					foreach ($pics as $value):

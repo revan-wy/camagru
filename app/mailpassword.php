@@ -5,7 +5,7 @@
 
 	$headers = 'MIME-Version: 1.0'."\n";
 	$headers .= 'Content-type: text/html; charset=iso-8859-1'."\n";
-	$headers .= "From: camagry-noreply@student.wethinkcode.co.za\n";
+	$headers .= "From: camagru-noreply@student.wethinkcode.co.za\n";
 	$mailbody = "<html><body>";
 	$mailbody .= "<p>Hi, ".$this->login."</p>";
 	$mailbody .= "<p>Please follow the link below to reset your Camagru password. The link will expire after 48 hours. </p>";

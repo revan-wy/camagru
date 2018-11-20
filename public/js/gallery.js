@@ -37,10 +37,8 @@ function addComment(id, comment, login)
 	xhr.open("POST", "../app/savecomment.php", true);
 	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhr.send("pic_id="+id+"&comment="+com);
-	xhr.onreadystatechange = function ()
-	{
-		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)
-		{
+	xhr.onreadystatechange = function () {
+		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
 			var div = document.createElement("DIV");
 			div.setAttribute("class", "allcomments");
 			div.innerHTML = "<b>"+login+"</b> "+com;
@@ -50,13 +48,11 @@ function addComment(id, comment, login)
 	}
 }
 
-function htmlEntities(str)
-{
+function htmlEntities(str) {
 	return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
-function deletePicture(id)
-{
+function deletePicture(id) {
 	document.getElementById('delete_'+id).parentNode.remove();
 	var xhr = new XMLHttpRequest();
 	xhr.open("GET", "../app/deletepic.php?pic_id="+id, true);

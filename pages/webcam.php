@@ -11,7 +11,7 @@
 
 <html>
 	<head>
-		<meta charset="utf-8" name="viewport" content="width=device-width, inital-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 		<link rel="stylesheet" href="../public/css/webcam.css">
 		<link rel="stylesheet" href="../public/css/headerfooter.css">
 		<title>Camagru</title>
@@ -28,7 +28,7 @@
 					<button id="img3" style=background-color:#f2f2f2><img src="../public/img/image3.png" width=100/></button>
 					<p>
 						OR<br />
-						Upload a picture<br /><span id="alinea">(jpeg, png | max 1.5 Mo)</span>
+						Upload a picture<br /><span id="paragraph">(jpeg, png | max 1.5 Mo)</span>
 					</p>
 					<label class="file" title="">
 						<input type="file" accept="image/*" name="uploadpic" id="uploadpic" onchange="this.parentNode.setAttribute('title', this.value.replace(/^.*[\\/]/,''))"/>

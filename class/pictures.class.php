@@ -40,7 +40,7 @@ class Pictures {
 		try {
 			date_default_timezone_set('Africa/Johannesburg');
 			$date_created = date("Y-m-d H:i:s");
-			$req = $this->db->prepare("INSERT INTO `pictures` (`login`,`pic`,`date_created`) VALUES (?, ?, ?)");
+			$req = $this->db->prepare("INSERT INTO `pictures` (`login`, `pic`, `date_created`) VALUES (?, ?, ?)");
 			$req->execute(array($this->login, $this->pic, $date_created));
 			$req = $this->db->query("SELECT `pic_id` FROM `pictures` WHERE `login` = '".$this->login."' AND `date_created` = '".$date_created."'");
 			$pic_id = $req->fetch(PDO::FETCH_ASSOC);
@@ -55,7 +55,7 @@ class Pictures {
 		try {
 			$req = $this->db->prepare("SELECT * FROM `pictures` ORDER BY `date_created` DESC LIMIT ".$page.", ".$nbpicbypage);
 			$res = $req->execute();
-			$pictures = $req->fetchAll(PDO::FETCH_ASSOC);
+			$picture = $req->fetchAll(PDO::FETCH_ASSOC);
 			return $picture;
 		}
 		catch (Exception $e) {
@@ -78,7 +78,7 @@ class Pictures {
 	public function nbPictures() {
 		try {
 			$req = $this->db->query("SELECT count(*) FROM `pictures`");
-			$nbpic = $req->fetchAll(PDO::FETCH_ASSOC);
+			$nbpic = $req->fetch(PDO::FETCH_ASSOC);
 			return $nbpic['count(*)'];
 		}
 		catch (Exception $e) {

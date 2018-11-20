@@ -5,7 +5,7 @@
 			<?if ($_SESSION['logged_user'] !== null):?>
 				<a id="" href="webcam.php">Photobooth</a>
 				<a id="" href="mygallery.php">My Gallery</a>
-				<a id="" href="gallery.php">Main Gallery</a>
+				<a id="" href="gallery.php?page=1">Main Gallery</a>
 				<a id="" href="logout.php">Log Out</a>
 			<?else:?>
 				<a id="" href="home.php">Log In</a>

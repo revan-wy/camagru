@@ -24,11 +24,9 @@
 				$page = isset($_GET['page']) ? htmlentities($_GET['page']) : 1;
 				$nbpic = $pic->nbPictures();
 				$nbpage = ceil($nbpic / $nbpicbypage);
-				if ($nbpic == 0): 
-			?>
+				if ($nbpic == 0): ?>
 			<p>We're waiting for your first pic! Head to the Photobooth!</p>
-			<?
-				elseif ($page > $nbpage || preg_match('/^[0-9]*$/', $page) == 0):
+			<? elseif ($page > $nbpage || preg_match('/^[0-9]*$/', $page) == 0):
 					echo '<script>location.replace("gallery.php?page=1")</script>';
 				else:
 					$pics = $pic->getPicturesByPage((($page - 1) * $nbpicbypage), $nbpicbypage);
@@ -44,29 +42,30 @@
 						$comments = $comment->getComment();
 			?>
 			<div class="picgallery">
-				<div class="login" id="login_<?=$id_pic?>"><?=$value['login']?></div>
-				<img class="pic" id="pic_<?=$pic_id?>" src="data:image/jpeg;base64, <?base64_encode($value['pic'])?>">
+				<div class="login" id="login_<?= $id_pic ?>"><?= $value['login'] ?></div>
+				<img class="pic" id="pic_<?= $pic_id ?>" src="data:image/jpeg;base64,<?= base64_encode($value['pic'])?>"/>
 				<div class="likeandcomment">
 					<? if ($_SESSION['logged_user'] !== null): ?>
 						<? if ($liked === false): ?>
-							<button onclick="addLike(<?= $pic_id?>)" class="like"><img id="like<?= $pic_id?>" src="../public/img/like.png"></button>
-						<?else:?>
-							<button onclick="addLike(<?= $pic_id?>)" class="like"><img id="like_<?= $pic_id?>" src="../public/img/like_red.png"></button>
-						<?endif;?>
-					<?else:?>
-						<button class="like"><img src="../public/img/like.png"></button>
+							<button onclick="addLike(<?= $pic_id ?>)" class="like" ><img id=like_<?= $pic_id ?> src="../public/img/like.png"/></button>
+						<? else: ?>
+							<button onclick="addLike(<?= $pic_id ?>)" class="like" ><img id=like_<?= $pic_id ?> src="../public/img/like_red.png"/></button>
+						<? endif;?>
+					<? else: ?>
+						<button class="like"><img src="../public/img/like.png"/></button>
 					<?endif;?>
 					<label for="new_comment_<?= $pic_id?>" class="comment"><img id="comment_<?= $pic_id?>" src="../public/img/comment.png"></label>
 					<span class="nblike" id="nblike_<?= $pic_id?>"><?$nblike?>Like</span>
 				</div>
 				<div id="firstcomment_<?= $pic_id?>">
 					<?foreach ($comments as $line):?>
-						<div class="allcomments"><b><?= $line['login']?></b><?= $line['comment']?></div>
+						<div class="allcomments"><b><?= $line['login']?></b> <?= $line['comment']?></div>
 					<?endforeach;?>
 				</div>
 				<form method="post">
 					<?php if ($_SESSION['logged_user'] !== null):?>
-						<input type="text" maxlength="255" onkeypress="{if (event.keyCode == 13) {event.preventDefault(); addComment(<?= $pic_id?>, this, '<?= $user?>')}}" class="inputcomment" id="new_comment_<?= $pic_id?>" name="new_comment_<?= $pic_id?>" placeholder="Type comment here...">
+						<input type="text" maxlength="255" onkeypress="{if (event.keyCode == 13) {event.preventDefault(); addComment(<?= $pic_id?>, this, '<?= $user?>')}}" 
+								class="inputcomment" id="new_comment_<?= $pic_id?>" name="new_comment_<?= $pic_id?>" placeholder="Type comment here...">
 					<?endif;?>
 				</form>
 			</div>

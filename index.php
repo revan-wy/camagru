@@ -6,9 +6,9 @@ session_start();
 if (!isset($_SESSION['logged_user']))
 {
 	require_once('config/setup.php');
-	header("Location: pages/home.php"); //file incomplete
+	header("Location: pages/home.php");
 }
 else
-	header("Location: pages/webcam.php"); //file incomplete
+	header("Location: pages/webcam.php");
 
 ?>

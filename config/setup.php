@@ -5,8 +5,7 @@
 		
 	require 'database.php';
 
-	try
-	{
+	try {
 		$pdo = new PDO($DB_DSN_FIRST, $DB_USER, $DB_PASSWORD);
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$sql = 'CREATE DATABASE IF NOT EXISTS db_camagru';

@@ -101,7 +101,7 @@ aside {
 	margin: 1rem 0 1rem 0;
 }
   
-#alinea {
+#paragraph {
 	font-size: 1.5rem;
 }
   
@@ -140,7 +140,7 @@ label.file:before {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	text-align: center;
-	vertical-align: middle;
+	/*vertical-align: middle;*/
 }
   
 label.file[title]:not([title=""]):before{

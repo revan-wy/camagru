@@ -18,7 +18,7 @@ class Likes {
 			$this->login = $login;
 		}
 		catch (Exception $e) {
-			die('Error: '.$e->getMessage);
+			die('Error: '.$e->getMessage());
 		}
 	}
 
@@ -66,7 +66,7 @@ class Likes {
 		}
 	}
 
-	public function deleteAllLike() {
+	public function deleteAllLikes() {
 		try {
 			$req = $this->db->prepare("DELETE FROM `likes` WHERE `pic_id` = ?");
 			$req->execute(array($this->pic_id));

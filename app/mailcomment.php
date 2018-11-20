@@ -11,7 +11,7 @@
 	$mailbody .= "<p>".$this->login." posted a new comment on your picture: \"".$this->comment."\"</p>";
 	$mailbody .= "<p>Regards,</p>";
 	$mailbody .= "<p>Camagru</p>";
-	$mailbosy .= "</body></html>";
+	$mailbody .= "</body></html>";
 	mail($email, "Camagru - New Comment", $mailbody, $headers);
 
 ?>

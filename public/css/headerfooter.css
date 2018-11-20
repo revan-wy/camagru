@@ -15,7 +15,7 @@ html {
 }
   
 body {
-	/*background-image: url('../img/bw.jpg');*/
+	background-image: url('../img/bw.jpg');
 	background-repeat: repeat;
 	background-position: center center;
 	font-size: 1.7rem;

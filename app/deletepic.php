@@ -10,7 +10,7 @@
 	$db->deletePicture();
 	require '../class/likes.class.php';
 	$like = new Likes($pic_id, "");
-	$like->deleteAlllike();
+	$like->deleteAllLikes();
 	require '../class/comments.class.php';
 	$comment = new Comments($pic_id, "", "");
 	$comment->deleteAllComment();

@@ -12,8 +12,7 @@ class Users {
 	private $token;
 	public $message;
 
-	public function __construct($login, $passwd, $passwdVerif, $email, $token)
-	{
+	public function __construct($login, $passwd, $passwdVerif, $email, $token) {
 		try {
 			require '../config/database.php';
 			$this->db = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
@@ -142,7 +141,7 @@ class Users {
 		try {
 			$req = $this->db->prepare("SELECT * FROM `users` WHERE `token` = ?");
 			$res = $req->execute(array($this->token));
-			$user = $req->fetch(PDO::FETCH_ADDOC);
+			$user = $req->fetch(PDO::FETCH_ASSOC);
 			if (!$user)
 				return $this->message = "The link has expired or has not been correctly followed.";
 			self::checkPassword();

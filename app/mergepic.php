@@ -5,7 +5,7 @@
 
 	$rawpic = $_POST['pic'];
 	$pic = imagecreatefromstring(base64_decode($rawpic));
-	$ndimg = $_POST['img'];
+	$nbimg = $_POST['img'];
 	$img = imagecreatefrompng("../public/img/image".$nbimg.".png");
 
 	imagealphablending($img, false);
@@ -16,7 +16,7 @@
 		imagecopy($pic, $img, 10, 10, 0, 0, 100, 100);
 	ob_start();
 	imagejpeg($pic, null, 100);
-	$contents = og_get_contents();
+	$contents = ob_get_contents();
 	ob_end_clean();
 
 	echo json_encode(base64_encode($contents));

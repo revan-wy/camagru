@@ -8,9 +8,9 @@
 	$headers .= "From: camagru-noreply@student.wethinkcode.co.za\n";
 	$mailbody = "<html><body>";
 	$mailbody .= "<p>Hi, ".$this->login."</p>";
-	$mailbody .= "<p>To activate your Camagry account, please follow the link below. This link will expire after 48 hours.</p>";
+	$mailbody .= "<p>To activate your Camagru account, please follow the link below. This link will expire after 48 hours.</p>";
 	$mailbody .= "<p><a href=http://".$pwrurl.">Click here</a></p>";
-	$mailbody .= "<p>Regards</p>";
+	$mailbody .= "<p>Regards,</p>";
 	$mailbody .= "<p>Camagru</p>";
 	$mailbody .= "</body></html>";
 

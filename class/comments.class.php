@@ -39,9 +39,14 @@ class Comments {
 		try {
 			$req = $this->db->prepare("SELECT `login` FROM `pictures` WHERE `pic_id` = ?");
 			$res = $req->execute(array($this->pic_id));
-			$pic = $req->fecth(PDO::FETCH_ASSOC);
-			$email = $user['email'];
-			require '../app/mailcomment.php';
+			$pic = $req->fetch(PDO::FETCH_ASSOC);
+			if ($pic['login'] != $this->login) {
+				$login_pic = $pic['login'];
+				$req = $this->db->query("SELECT `email` FROM `users` WHERE `login` = '$login_pic'");
+				$user = $req->fetch(PDO::FETCH_ASSOC);
+				$email = $user['email'];
+				require '../app/mailcomment.php';
+			}
 		}
 		catch (Exception $e) {
 			die('Error: '.$e->getMessage());

@@ -40,7 +40,7 @@
 					else
 					{
 						$_SESSION['logged_user'] = $login;
-						echo '<script> location.replace(../index.php); </script>';
+						echo '<script> location.replace("../index.php"); </script>';
 					}
 				}
 			}
