@@ -1,7 +1,7 @@
 <?php //untested
 
 //remove before flight
-//ini_set('display_errors', 'On');
+ini_set('display_errors', 'On');
 
 class Users {
 	private $db;
@@ -15,7 +15,7 @@ class Users {
 	public function __construct($login, $passwd, $passwdVerif, $email, $token)
 	{
 		try {
-			require '../config/database.php'; //file incomplete
+			require '../config/database.php';
 			$this->db = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
 			$this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			$this->login = $login;
@@ -73,9 +73,9 @@ class Users {
 		$date_created = date("Y-m-d H:i:s");
 		$token_expires = date("Y-m-d H:i:s", strtotime($date_created.' + 2 days'));
 		try {
-			$req = $this->db->prepare("INSERT INTO `users` (`login`, `password`, `email`, `date_created`, `token`, `token_expires`) VALUES (?, ?, ?, ?, ?)");
+			$req = $this->db->prepare("INSERT INTO `users` (`login`, `password`, `email`, `date_created`, `token`, `token_expires`) VALUES (?, ?, ?, ?, ?, ?)");
 			$req->execute(array($this->login, hash('whirlpool', $this->passwd), $this->email, $date_created, $token, $token_expires));
-			$req = $this->db->prepare("DELETE FROM `users` WHERE `token_expires` < NOW() AND `confirm` = 0");
+			$req = $this->db->prepare("DELETE FROM `users` WHERE `token_expires` < NOW() AND `confirmed` = 0");
 			$req->execute();
 			require '../app/mailconfirm.php';
 		}
@@ -86,12 +86,13 @@ class Users {
 
 	public function confirmUser() {
 		try {
+			//return ("test");
 			$req = $this->db->prepare("SELECT * FROM `users` WHERE `token` = ?");
 			$res = $req->execute(array($this->token));
-			$user = $req->fetch(PDO::FETCH_ADDOC);
-			if (!user)
+			$user = $req->fetch(PDO::FETCH_ASSOC);
+			if (!$user)
 				return $this->message = "Your account has already been verified or the link has expired.";
-			$req = $this->db->prepare("UPDATE `users` SET `confirm` = ?, `token` = ?, `token_expires` = ? WHERE `token` = ?");
+			$req = $this->db->prepare("UPDATE `users` SET `confirmed` = ?, `token` = ?, `token_expires` = ? WHERE `token` = ?");
 			$req->execute(array(1, NULL, NULL, $this->token));
 			$this->message = "Your account has now been verified. Welcome, ".$user['login']."!";
 		}
@@ -105,7 +106,7 @@ class Users {
 			$user = $this->getUser();
 			if (!$user)
 				return $this->message = "The entered user name is not associated with an account.";
-			if ($user['confirm'] == 0)
+			if ($user['confirmed'] == 0)
 				return $this->message = "This account has not yet been validated. <br/>Please follow the link that was sent via email.";
 			if ($user['password'] != hash('whirlpool', $this->passwd))
 				return $this->message = "The entered password is incorrect.";
@@ -128,7 +129,7 @@ class Users {
 			$token_expires = date("Y-m-d H:i:s", strtotime($date_created.' + 2 days'));
 			$req = $this->db->prepare("UPDATE `users` SET `token` = ?, `token_expires` = ? WHERE `login` = ?");
 			$req->execute(array($token, $token_expires, $this->login));
-			$req = $this->db->prepare("UPDATE `users` SET `token` = ?, `token_expires` = ? WHERE `token_expires` < NOW() AND `confirm` = 1");
+			$req = $this->db->prepare("UPDATE `users` SET `token` = ?, `token_expires` = ? WHERE `token_expires` < NOW() AND `confirmed` = 1");
 			$req->execute(array(NULL, NULL));
 			require '../app/mailpassword.php';
 		}

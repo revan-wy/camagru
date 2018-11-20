@@ -4,6 +4,10 @@ html {
 	height: 100%;
 	box-sizing: border-box;
 	font-size: 62.5%;
+	background: black;
+	font-family: 'Courier New', Courier, monospace;
+	color: #00ff41;
+	text-shadow: 0px 0px 10px #75AD61;
 }
   
 *, *:before, *:after {
@@ -14,7 +18,6 @@ body {
 	/*background-image: url('../img/bw.jpg');*/
 	background-repeat: repeat;
 	background-position: center center;
-	font-family: Gill Sans, sans-serif;
 	font-size: 1.7rem;
 	position: relative;
 	padding-bottom: 2rem;  /*height of the footer*/
@@ -41,8 +44,9 @@ nav a {
   
 .title {
 	font-size: 3.2rem;
-	font-family: cursive;
-	color: #16A085;
+	font-family: 'Courier New', Courier, monospace;
+	color: #00ff41;
+	text-shadow: 0px 0px 10px #75AD61;
 }
   
 footer {

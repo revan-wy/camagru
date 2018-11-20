@@ -1,7 +1,7 @@
 <?php //untested
 
 	//remove before flight
-	//ini_set('display_errors', 'On');
+	ini_set('display_errors', 'On');
 
 	$rawpic = $_POST['pic'];
 	$pic = imagecreatefromstring(base64_decode($rawpic));

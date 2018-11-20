@@ -59,24 +59,30 @@
 			<a href="gallery.php" id="galleryaccess">Access gallery without login</a>
 		</div>
 		<?php
-			if (!empty(htmlentities($_POST['new_login'])) and !empty($_POST['new_passwd']) and !empty($_POST['new_passwd_verif']) and !empty(htmlentities($_POST['new_email'])) and $_POST['submit_new'] == "OK")
+			if (isset($_POST['new_login']))
 			{
-				$new_login = trim(htmlentities($_POST['new_login']));
-				$new_email = trim(htmlentities($_POST['new_email']));
-				$db = new Users($new_login, $_POST['new_passwd'], $_POST['new_passed_verif'], $new_email, "");
-				$db->sendConfirmationUser();
-				if ($db->message)
-					echo '<div style="color:red;">'.$db->message.'</div>';
-			}
-			else if ($_POST['submit_new'] == "OK")
-				echo '<div style="color:red;">Please complete all the fields.</div>';
-			else if ($_GET['q'] != "")
+				if (!empty(htmlentities($_POST['new_login'])) and !empty($_POST['new_passwd']) and !empty($_POST['new_passwd_verif']) and !empty(htmlentities($_POST['new_email'])) and $_POST['submit_new'] == "OK")
+				{
+					$new_login = trim(htmlentities($_POST['new_login']));
+					$new_email = trim(htmlentities($_POST['new_email']));
+					$db = new Users($new_login, $_POST['new_passwd'], $_POST['new_passwd_verif'], $new_email, "");
+					$db->sendConfirmationUser();
+					if ($db->message)
+						echo '<div style="color:red;">'.$db->message.'</div>';
+				}
+				else if ($_POST['submit_new'] == "OK")
+					echo '<div style="color:red;">Please complete all the fields.</div>';
+			}	
+			if (isset($_GET['q']))
 			{
-				$token = $_GET['q'];
-				$db = new Users("", "", "", "", $token);
-				$db->confirmUser();
-				if ($db->message)
-					echo '<div style="color:red;">'.$db->message.'</div>';
+				if ($_GET['q'] != "")
+				{
+					$token = $_GET['q'];
+					$db = new Users("", "", "", "", $token);
+					$db->confirmUser();
+					if ($db->message)
+						echo '<div style="color:red;">'.$db->message.'</div>';
+				}
 			}
 		?>
 	</body>

@@ -16,31 +16,36 @@ body {
 }
   
 h2 {
-	color: #787878;
+	color: #00ff41;
 }
   
 input {
 	width: 20rem;
 	outline:none;
+	background-color: black;
+	font-family: 'Courier New', Courier, monospace;
+	color: #00ff41;
+	text-shadow: 0px 0px 10px #75AD61;
 }
   
 .button {
 	cursor: pointer;
 	border: solid 1px transparent;
-	background-color: #16A085;
-	color: #fff;
+	background-color: #00ff41;
+	color: black;
 	outline:none;
+	font-family: 'Courier New', Courier, monospace;
 }
   
 .button:hover {
-	background-color: #18b294;
+	background-color: #75AD61;
 }
   
-.login, .register {
+/*.login, .register {
 	border: 2rem solid #edd15a;
 	padding: 3rem 9rem 3rem 9rem;
 	background-color: #fff099;
-}
+}*/
   
 .register {
 	margin-top: 2rem;
