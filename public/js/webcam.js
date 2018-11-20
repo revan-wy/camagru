@@ -151,5 +151,87 @@
 		ev.preventDefault();
 	}, false);
 
-	
+	upload.addEventListener('change', function(e) {
+		var file = this.files[0];
+		var imageType = /image.*/;
+			if (file.type.match(imageType) && file.size < 1500000) {
+				   var reader = new FileReader();
+		reader.addEventListener('load', function() {
+		  uploadData = reader.result;
+		}, false);
+		reader.readAsDataURL(file);
+	  }
+	}, false);
+  
+	submitupload.addEventListener('click', function(ev) {
+	  if (uploadData == 0)
+		displayError("NoUpload");
+	  else
+		takePicture(0);
+	}, false);
+  
+	function addMinipic(id, data) {
+	  var div = document.createElement("DIV");
+	  div.setAttribute("class", "displaypic");
+	  var pic = document.createElement("IMG");
+	  pic.setAttribute("src", data);
+	  pic.setAttribute("class", "minipic");
+	  var x = document.createElement("IMG");
+	  x.setAttribute("src", "../public/img/delete.png");
+	  x.setAttribute("class", "deletepic");
+	  x.setAttribute("id", "delete_"+id);
+	  x.setAttribute("onclick", "deletePicture("+id+")");
+	  var minipic = document.getElementById('side');
+	  minipic.insertBefore(div, minipic.childNodes[0]);
+	  div.insertBefore(x, div.childNodes[0]);
+	  div.insertBefore(pic, div.childNodes[0]);
 	}
+  
+	function savePicture(data) {
+	  var picData = data.replace("data:image/png;base64,", "");
+	  var xhr = new XMLHttpRequest();
+	  xhr.open("POST", "../app/savepic.php", true);
+	  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	  xhr.send("pic="+encodeURIComponent(picData));
+	  xhr.onreadystatechange = function () {
+		if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+		  var response = JSON.parse(xhr.responseText);
+		  var id_pic = response['id_pic'];
+		  addMinipic(id_pic, data);
+		}
+	  }
+	}
+  
+  })();
+  
+  
+  function checkError() {
+	var error = document.getElementById('error');
+	if (error !== null) {
+	  error.remove();
+	}
+  }
+  
+  function displayError(msg) {
+	var error = document.getElementById('error');
+	if (error !== null) {
+	  error.remove();
+	}
+	error = document.createElement("DIV");
+	error.setAttribute("id", "error");
+	if (msg == "NoImg")
+	  error.innerHTML = "Select an image to take <br /> a photo.";
+	else if (msg == "NoUpload")
+	  error.innerHTML = "Choose an image in your files <br /> not exceeding 1,5Mo.";
+	else if (msg == "NoVideo")
+	  error.innerHTML = "Activate your webcam <br /> or choose an image in your folders";
+	document.getElementById('column1').appendChild(error);
+  }
+  
+  function deletePicture(id) {
+	var elem = document.getElementById('delete_'+id).parentNode.remove();
+	var xhr = new XMLHttpRequest();
+	xhr.open("GET", "../app/deletepic.php?id_pic="+id, true);
+	xhr.send();
+  }
+  

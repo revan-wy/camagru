@@ -1,7 +1,7 @@
 <?php //untested
 
 	//remove before flight
-	ini_set('display_errors', 'On');
+	//ini_set('display_errors', 'On');
 
 	$headers = 'MIME-Version: 1.0'."\n";
 	$headers .= 'Content-type: text/html; charset=iso-8859-1'."\n";

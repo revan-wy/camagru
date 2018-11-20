@@ -1,7 +1,7 @@
 <?php //untested 
 
 	//remove before flight
-	ini_set('display_errors', 'On');
+	//ini_set('display_errors', 'On');
 
 	session_start();
 	if ($_SESSION['logged_user'] === null)
@@ -19,7 +19,7 @@
 	<body>
 		<?php include 'header.php'; ?>
 		<div class="allwebcam">
-			<main class="webcamapercu">
+			<main class="webcampreview">
 				<div class="webcam" id="column1">
 					<video id="video"></video><br />
 					<button id="startbutton">Shutter, go!</button>
@@ -35,7 +35,7 @@
 					</label>
 					<input id="uploadsubmitbutton" type="submit" value="Merge Images" name="submit">
 				</div>
-				<div class="apercu">
+				<div class="preview">
 					<canvas id="canvas"></canvas><br />
 					<button id="savebutton">Save</button>
 				</div>

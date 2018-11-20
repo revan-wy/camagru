@@ -6,7 +6,7 @@
   
 @media screen and (max-width: 660px){
 	.allwebcam { flex-wrap: wrap; flex-direction: column; align-items: center;}
-	.webcamapercu { flex-wrap: wrap; flex-direction: column;}
+	.webcampreview { flex-wrap: wrap; flex-direction: column;}
 }
   
 .allwebcam {
@@ -18,12 +18,12 @@ aside {
 	margin: 0.5rem;
 }
   
-.webcamapercu {
+.webcampreview {
 	display: flex;
 	margin: 1rem;
 }
   
-.webcam, .apercu {
+.webcam, .preview {
 	display: flex;
 	flex-direction: column;
 	vertical-align: middle;

@@ -4,16 +4,16 @@
 	//ini_set('display_errors', 'On')
 
 	session_start();
-	require_once '../class/users.class.php'; //file incomplete
+	require_once '../class/users.class.php';
 
 ?>
 
 <html>
 	<head>
 		<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-		<link rel="stylesheet" href="../public/css/home.css"> <!--file incomplete-->
-		<link rel="stylesheet" href="../public/css/headerfooter.css"> <!--file incomplete-->
-		<title>Camagru Login2</title>
+		<link rel="stylesheet" href="../public/css/home.css">
+		<link rel="stylesheet" href="../public/css/headerfooter.css">
+		<title>Camagru Log In</title>
 	</head>
 	<body>
 		<h1 class=title id=maintitle>Camagru</h1>
@@ -24,12 +24,12 @@
 				Password<br /><input type="password" name="passwd" value=""><br /><br />
 				<input class="button" type="submit" name="submit" value="OK">
 			</form>
-			<a href="forgot.php" id="forgot">Forgot Password?</a> <!--file incomplete-->
+			<a href="forgot.php" id="forgot">Forgot Password?</a>
 		</div>
 		<?php
 			if (isset($_POST['login']) and isset($_POST['passwd']))
 			{
-				if (!empty(htmlentities($_POST['login'])) and !empty(htmlentities	($_POST['passwd'])) and $_POST['submit'] == "OK")
+				if (!empty(htmlentities($_POST['login'])) and !empty(htmlentities($_POST['passwd'])) and $_POST['submit'] == "OK")
 				{
 					$login = trim(htmlentities($_POST['login']));
 					$passwd = htmlentities($_POST['passwd']);

@@ -1,5 +1,3 @@
-
-
 (function() {
 
   var streaming = false,
