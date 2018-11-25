@@ -28,7 +28,7 @@
 					<button id="img3" style=background-color:#f2f2f2><img src="../public/img/image3.png" width=100/></button>
 					<p>
 						OR<br />
-						Upload a picture<br /><span id="paragraph">(jpeg, png | max 1.5 Mo)</span>
+						Upload a picture<br /><span id="paragraph">(jpeg/png; not more than 1.5 MB)</span>
 					</p>
 					<label class="file" title="">
 						<input type="file" accept="image/*" name="uploadpic" id="uploadpic" onchange="this.parentNode.setAttribute('title', this.value.replace(/^.*[\\/]/,''))"/>
@@ -45,14 +45,16 @@
 					require '../class/pictures.class.php';
 					$pic = new Pictures("", "", $_SESSION['logged_user']);
 					$res = $pic->getPicture();
-					foreach ($res as $value): ?>
-						<div class="displaypic">
-							<img class="minipic" src="data:image/jpeg;base64,<?= base64_encode($value['pic']) ?>"/>
-							<img class="deletepic" id="delete_<?= $value['pic_id'] ?>" onclick="deletePicture(<?= $value['pic_id'] ?>)" src="../public/img/delete.png"/>
-						</div>
-					<? endforeach; ?>
+					//if (!empty($res)) {
+						foreach ($res as $value): ?>
+							<div class="displaypic">
+								<img class="minipic" src="data:image/jpeg;base64,<?= base64_encode($value['pic']) ?>"/>
+								<img class="deletepic" id="delete_<?= $value['pic_id'] ?>" onclick="deletePicture(<?= $value	['pic_id'] ?>)" src="../public/img/delete.png"/>
+							</div>
+						<? endforeach;
+					//}?>
 			</aside>
-			<script type="application/javascript" src="../public/js/webcam.js"></script>
+			<script type="application/javascript" src="../public/js/webcam.js">
 		</div>
 		<footer></footer>
 	</body>
