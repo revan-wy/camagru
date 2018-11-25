@@ -45,16 +45,14 @@
 					require '../class/pictures.class.php';
 					$pic = new Pictures("", "", $_SESSION['logged_user']);
 					$res = $pic->getPicture();
-					//if (!empty($res)) {
 						foreach ($res as $value): ?>
 							<div class="displaypic">
 								<img class="minipic" src="data:image/jpeg;base64,<?= base64_encode($value['pic']) ?>"/>
-								<img class="deletepic" id="delete_<?= $value['pic_id'] ?>" onclick="deletePicture(<?= $value	['pic_id'] ?>)" src="../public/img/delete.png"/>
+								<img class="deletepic" id="delete_<?= $value['pic_id'] ?>" onclick="deletePicture(<?= $value['pic_id'] ?>)" src="../public/img/delete.png"/>
 							</div>
-						<? endforeach;
-					//}?>
+						<? endforeach; ?>
 			</aside>
-			<script type="application/javascript" src="../public/js/webcam.js">
+			<script type="application/javascript" src="../public/js/webcam.js"></script>
 		</div>
 		<footer></footer>
 	</body>
