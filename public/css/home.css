@@ -13,9 +13,9 @@ body {
 	font-size: 5rem;
 }
   
-h2 {
+/*h2 {
 	color: #00ff41;
-}
+}*/
   
 input {
 	width: 20rem;
@@ -29,7 +29,7 @@ input {
 .button {
 	cursor: pointer;
 	border: solid 1px transparent;
-	background-color: #00ff41;
+	background-color: #75AD61;
 	color: black;
 	outline:none;
 	font-family: 'Courier New', Courier, monospace;

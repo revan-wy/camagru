@@ -35,7 +35,7 @@
 					require '../class/likes.class.php';
 					require '../class/comments.class.php';
 					foreach ($pics as $value):
-						$pic_ic = $value['pic_id'];
+						$pic_id = $value['pic_id'];
 						$user = $_SESSION['logged_user'];
 						$like = new Likes($pic_id, $user);
 						$liked = $like->getLike();
