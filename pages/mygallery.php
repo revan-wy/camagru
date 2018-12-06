@@ -41,7 +41,7 @@
 						$liked = $like->getLike();
 						$nblike = $like->nbLike();
 						$comment = new Comments($pic_id, "", "");
-						$comments = $comment->getComment;
+						$comments = $comment->getComment();
 				?>
 				<div class="picgallery">
 					<div class="login" id="login_<?= $pic_id?>"><?= $value['login']?></div>

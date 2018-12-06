@@ -42,7 +42,7 @@
 						$comments = $comment->getComment();
 			?>
 			<div class="picgallery">
-				<div class="login" id="login_<?= $id_pic ?>"><?= $value['login'] ?></div>
+				<div class="login" id="login_<?= $pic_id ?>"><?= $value['login'] ?></div>
 				<img class="pic" id="pic_<?= $pic_id ?>" src="data:image/jpeg;base64,<?= base64_encode($value['pic'])?>"/>
 				<div class="likeandcomment">
 					<? if ($_SESSION['logged_user'] !== null): ?>
