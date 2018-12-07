@@ -22,7 +22,7 @@ class Users {
       $this->token = $token;
     }
     catch (Exception $e) {
-      die('Erreur : ' . $e->getMessage());
+      die('Error : ' . $e->getMessage());
     }
   }
 
@@ -34,30 +34,30 @@ class Users {
       return $user;
     }
     catch (Exception $e) {
-      die('Erreur : ' . $e->getMessage());
+      die('Error : ' . $e->getMessage());
     }
   }
 
   private function checkPassword() {
     if (strlen($this->passwd) > 255)
-      return $this->message = "Votre mot de passe ne doit pas excéder 30 caractères.";
+      return $this->message = "Your password must not exceed 30 characters.";
     if ($this->passwd != $this->passwdVerif)
-      return $this->message = "Les mots de passe ne sont pas identiques.";
+      return $this->message = "Passwords are not the same.";
     if (!preg_match('/(?=.*[0-9])(?=.*[A-Za-z]).{7,30}/', $this->passwd))
-      return $this->message = "Votre mot de passe doit être composé a minima de 7 caractères, dont une lettre et un chiffre.";
+      return $this->message = "Your password must be at least 7 characters long, including a letter and a number.";
   }
 
   private function checkNewUser() {
     if (strlen($this->login) > 30)
-      return $this->message = "Votre login ne doit pas excéder 30 caractères.";
+      return $this->message = "Your login must not exceed 30 characters.";
     $user = $this->getUser();
     if ($user)
-      return $this->message = "Ce nom d'utilisateur est déjà utilisé.";
+      return $this->message = "this username is already used.";
     self::checkPassword();
     if ($this->message != null)
       return ;
     if (filter_var($this->email, FILTER_VALIDATE_EMAIL) === false)
-      return $this->message = "Votre mail n'est pas valide.";
+      return $this->message = "Your email is not valid.";
   }
 
   public function sendConfirmationUser() {
@@ -77,7 +77,7 @@ class Users {
       require '../app/mailconfirm.php';
     }
     catch (Exception $e) {
-      die('Erreur : ' . $e->getMessage());
+      die('Error : ' . $e->getMessage());
     }
   }
 
@@ -87,13 +87,13 @@ class Users {
       $res = $req->execute(array($this->token));
       $user = $req->fetch(PDO::FETCH_ASSOC);
       if (!$user)
-        return $this->message = "Votre compte a déjà été validé ou le lien a expiré.";
+        return $this->message = "Your account has already been verified or the link has expired.";
       $req = $this->db->prepare("UPDATE `users` SET `confirm` = ?, `token` = ?, `token_expires` = ? WHERE `token` = ?");
       $req->execute(array(1, NULL, NULL, $this->token));
-      $this->message = "Votre compte a bien été confirmé. Bienvenue " . $user['login'] . " !";
+      $this->message = "Your account has been confirmed. welcome" . $user['login'] . " !";
     }
     catch (Exception $e) {
-      die('Erreur : ' . $e->getMessage());
+      die('Error : ' . $e->getMessage());
     }
   }
 
@@ -101,14 +101,14 @@ class Users {
     try {
       $user = $this->getUser();
       if (!$user)
-        return $this->message = "Le nom d’utilisateur entré n’appartient à aucun compte.";
+        return $this->message = "The user name entered does not belong to any account.";
       if ($user['confirm'] == 0)
-        return $this->message = "Votre compte n'a pas encore été validé.<br /> Merci de suivre le lien reçu par mail.";
+        return $this->message = "Your account has not been validated yet. <br /> Please follow the link received by email.";
       if ($user['mot_de_passe'] != hash('whirlpool', $this->passwd))
-        return $this->message = "Votre mot de passe est incorrect.";
+        return $this->message = "Your password is incorrect.";
     }
     catch (Exception $e) {
-      die('Erreur : ' . $e->getMessage());
+      die('Error : ' . $e->getMessage());
     }
   }
 
@@ -116,7 +116,7 @@ class Users {
     try {
       $user = $this->getUser();
       if (!$user)
-        return $this->message = "Le nom d’utilisateur entré n’appartient à aucun compte.";
+        return $this->message = "The user name entered does not belong to any account.";
       $email = $user['email'];
       $token = bin2hex(random_bytes(16));
       $pwrurl = "localhost:8080/camagru/pages/password.php?q=" . $token;
@@ -130,7 +130,7 @@ class Users {
       require '../app/mailpassword.php';
     }
     catch (Exception $e) {
-      die('Erreur : ' . $e->getMessage());
+      die('Error : ' . $e->getMessage());
     }
   }
 
@@ -140,16 +140,16 @@ class Users {
       $res = $req->execute(array($this->token));
       $user = $req->fetch(PDO::FETCH_ASSOC);
       if (!$user)
-        return $this->message = "Le lien a expiré ou n'a pas été correctement suivi.";
+        return $this->message = "The link has expired or has not been correctly followed.";
       self::checkPassword();
       if ($this->message != null)
         return ;
       $req = $this->db->prepare("UPDATE `users` SET `mot_de_passe` = ? WHERE `token` = ?");
       $req->execute(array(hash('whirlpool', $this->passwd), $this->token));
-      $this->message = "Votre mot de passe a été modifié.";
+      $this->message = "Your password has been changed.";
     }
     catch (Exception $e) {
-      die('Erreur : ' . $e->getMessage());
+      die('Error : ' . $e->getMessage());
     }
   }
 }

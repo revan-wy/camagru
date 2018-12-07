@@ -17,25 +17,25 @@ if ($_SESSION['logged_user'] === null)
 
     <?php include 'header.php'; ?>
     <div class="allwebcam">
-      <main class="webcamapercu">
+      <main class="webcampreview">
         <div class="webcam" id="column1">
           <video id="video"></video><br />
-          <button id="startbutton">Prendre une photo</button>
+          <button id="startbutton">To take a picture</button>
           <button id="img1" style=background-color:#f2f2f2><img src="../public/img/image1.png" width=100/></button>
           <button id="img2" style=background-color:#f2f2f2><img src="../public/img/image2.png" width=100/></button>
           <button id="img3" style=background-color:#f2f2f2><img src="../public/img/image3.png" width=100/></button>
           <p>
             OU<br />
-            Téléchargez une image <br /><span id="alinea">(jpeg, png | max 1.5 Mo)</span>
+            Upload an image<br /><span id="paragraph">(jpeg, png | max 1.5 Mo)</span>
           </p>
             <label class="file" title="">
               <input type="file" accept="image/*" name="uploadpic" id="uploadpic" onchange="this.parentNode.setAttribute('title', this.value.replace(/^.*[\\/]/, ''))" />
             </label>
-            <input id="uploadsubmitbutton" type="submit" value="Fusionner les images" name="submit">
+            <input id="uploadsubmitbutton" type="submit" value="Merge images" name="submit">
         </div>
         <div class="apercu">
           <canvas id="canvas"></canvas><br />
-          <button id="savebutton">Sauvegarder</button>
+          <button id="savebutton">Save</button>
         </div>
       </main><br />
       <aside id="side">
@@ -56,4 +56,6 @@ if ($_SESSION['logged_user'] === null)
   </body>
 </html>
 
-<!-- Page webcam : possibilité de prendre des photos à partir d'une webcam avec un choix de 3 images superposables -->
+<!-- Page webcam : possibility of taking pictures from a webcam with a choice of 3 superimposable images
+ 
+ -->

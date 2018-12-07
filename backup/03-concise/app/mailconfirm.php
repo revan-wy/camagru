@@ -5,16 +5,16 @@
   $headers .= "From: camagru-noreply@student.42.fr\n";
   $mailbody = "<html><body>";
   $mailbody .= "<p>Bonjour " . $this->login . ",</p>";
-  $mailbody .= "Pour confirmer votre compte pour Camagru, cliquez sur le lien suivant dans les 48 heures : ";
-  $mailbody .= "<a href=http://" . $pwrurl . ">Suivez-moi</a></p>";
-  $mailbody .= "<p>A bientôt !</p>";
+  $mailbody .= "To confirm your Camagru account, click on the following link within 48 hours: ";
+  $mailbody .= "<a href=http://" . $pwrurl . ">Follow me</a></p>";
+  $mailbody .= "<p>See you soon!</p>";
   $mailbody .= "<p>Camagru</p>";
   $mailbody .= "</body></html>";
 
-  if (mail($this->email, "Camagru - Confirmez votre compte", $mailbody, $headers))
-    $this->message = "Un mail vous a été envoyé pour confirmer votre compte.";
+  if (mail($this->email, "Camagru - Confirm your account", $mailbody, $headers))
+    $this->message = "An email has been sent to you to confirm your account.";
   else
-    return $this->message = "Le mail d'inscription n'a pas pu être envoyé.";
+    return $this->message = "Registration email could not be sent.";
 
   // confirmation mail with a link to be followed to confirm the account
 ?>

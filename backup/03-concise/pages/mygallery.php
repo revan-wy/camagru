@@ -25,7 +25,7 @@ if ($_SESSION['logged_user'] === null)
       $nbpic = $pic->nbPicturesByLogin();
       $nbpage = ceil($nbpic / $nbpicbypage);
       if ($nbpic == 0): ?>
-        <p>Prenez votre première photo dans le Photobooth !</p>
+        <p>Take your first photo in the Photobooth!</p>
       <? elseif ($page > $nbpage || preg_match('/^[0-9]*$/', $page) == 0):
           echo '<script> location.replace("mygallery.php?page=1") </script>';
       else:
@@ -58,7 +58,7 @@ if ($_SESSION['logged_user'] === null)
             <button class="like" ><img src="../public/img/like.png"/></button>
           <? endif; ?>
           <label for="new_comment_<?= $id_pic ?>" class="comment"><img id="comment_<?= $id_pic ?>" src="../public/img/comment.png"/></label>
-          <span class="nblike" id="nblike_<?= $id_pic ?>"><?= $nblike ?> j'aime</span>
+          <span class="nblike" id="nblike_<?= $id_pic ?>"><?= $nblike ?> I like</span>
           </div>
           <div id="firstcomment_<?= $id_pic ?>">
             <? foreach ($comments as $line): ?>

@@ -15,7 +15,7 @@ class Likes {
       $this->login = $login;
     }
     catch (Exception $e) {
-      die('Erreur : ' . $e->getMessage());
+      die('Error: ' . $e->getMessage());
     }
   }
 
@@ -26,7 +26,7 @@ class Likes {
       return $req->fetch(PDO::FETCH_ASSOC);
     }
     catch (Exception $e) {
-      die('Erreur : ' . $e->getMessage());
+      die('Error: ' . $e->getMessage());
     }
   }
 
@@ -38,7 +38,7 @@ class Likes {
       $req->execute(array($this->id_pic, $this->login, $date_creation));
     }
     catch (Exception $e) {
-      die('Erreur : ' . $e->getMessage());
+      die('Error: ' . $e->getMessage());
     }
   }
 
@@ -49,7 +49,7 @@ class Likes {
       return $nblike['count(*)'];
     }
     catch (Exception $e) {
-      die('Erreur : ' . $e->getMessage());
+      die('Error: ' . $e->getMessage());
     }
   }
   public function deleteLike() {
@@ -58,7 +58,7 @@ class Likes {
       $req->execute(array($this->id_pic, $this->login));
     }
     catch (Exception $e) {
-      die('Erreur : ' . $e->getMessage());
+      die('Error: ' . $e->getMessage());
     }
   }
 
@@ -68,7 +68,7 @@ class Likes {
       $req->execute(array($this->id_pic));
     }
     catch (Exception $e) {
-      die('Erreur : ' . $e->getMessage());
+      die('Error: ' . $e->getMessage());
     }
   }
 

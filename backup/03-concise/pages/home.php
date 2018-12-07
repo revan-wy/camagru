@@ -10,18 +10,18 @@
   <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
   <link rel="stylesheet" href="../public/css/home.css">
   <link rel="stylesheet" href="../public/css/headerfooter.css">
-  <title>Connexion à Camagru</title>
+  <title>Log into Camagru</title>
 </head>
 <body>
   <h1 class=title id=maintitle>Camagru</h1>
-  <div class="connexion">
+  <div class="login">
     <h2>Se connecter</h2>
     <form class="" action="#" method="post">
-      Identifiant<br /><input type="text" name="login" value=""><br />
-      Mot de passe<br /><input type="password" name="passwd" value=""><br /><br />
+      login<br /><input type="text" name="login" value=""><br />
+      password<br /><input type="password" name="passwd" value=""><br /><br />
       <input class="button" type="submit" name="submit" value="OK">
     </form>
-    <a href="forgot.php" id="forgot">Mot de passe oublié ?</a>
+    <a href="forgot.php" id="forgot"> forgot password?</a>
   </div>
   <?php
   if (!empty(htmlentities($_POST['login'])) and !empty(htmlentities($_POST['passwd'])) and $_POST['submit'] == "OK") {
@@ -39,17 +39,17 @@
   }
   ?>
   <div class="inscription">
-    <h2>S'inscrire</h2>
+    <h2>Register</h2>
     <form class="" action="#" method="post">
-      Identifiant<br /><input type="text" name="new_login" value="" maxlength=30><br />
-      Mot de passe<br /><input type="password" name="new_passwd" value="" maxlength=50><br />
-      Confirmation mot de passe<br /><input type="password" name="new_passwd_verif" value="" maxlength=50><br />
+      Login<br /><input type="text" name="new_login" value="" maxlength=30><br />
+      password<br /><input type="password" name="new_passwd" value="" maxlength=50><br />
+      Confirmation password<br /><input type="password" name="new_passwd_verif" value="" maxlength=50><br />
       Mail<br /><input type="email" name="new_email" value="" maxlength=255><br /><br />
       <input class="button" type="submit" name="submit_new" value="OK">
     </form>
   </div>
   <div class="galleryaccess">
-    <a href="gallery.php" id="galleryaccess">Accès direct à la galerie</a>
+    <a href="gallery.php" id="galleryaccess">Direct access to the gallery</a>
   </div>
   <?php
     if (!empty(htmlentities($_POST['new_login'])) and !empty($_POST['new_passwd']) and !empty($_POST['new_passwd_verif'])
@@ -62,7 +62,7 @@
           echo '<div style="color:red;">' . $db->message . '</div>';
     }
     else if ($_POST['submit_new'] == "OK")
-      echo '<div style="color:red;">Merci de remplir tous les champs</div>';
+      echo '<div style="color:red;">Please fill in all the blanks</div>';
     else if ($_GET['q'] != "") {
       $token = $_GET['q'];
       $db = new Users("", "", "", "", $token);

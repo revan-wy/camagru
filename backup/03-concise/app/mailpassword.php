@@ -5,16 +5,16 @@
   $headers .= "From: camagru-noreply@student.42.fr\n";
   $mailbody = "<html><body>";
   $mailbody .= "<p>Bonjour " . $this->login . ",</p>";
-  $mailbody .= "<p>Pour réinitialiser votre mot de passe pour Camagru, cliquez sur le lien suivant dans les 48 heures : ";
-  $mailbody .= "<a href=http://" . $pwrurl . ">Suivez-moi</a></p>";
-  $mailbody .= "<p>A bientôt !</p>";
+  $mailbody .= "<p>To reset your password for Camagru, click on the following link within 48 hours : ";
+  $mailbody .= "<a href=http://" . $pwrurl . ">Follow me</a></p>";
+  $mailbody .= "<p>See you soon !</p>";
   $mailbody .= "<p>Camagru</p>";
   $mailbody .= "</body></html>";
 
-  if (mail($email, "Camagru - Mot de passe oublié", $mailbody, $headers))
-    $this->message = "Un mail vous a été envoyé pour réinitialiser votre mot de passe.";
+  if (mail($email, "Camagru - Forgot your password", $mailbody, $headers))
+    $this->message = "An email has been sent to reset your password.";
   else
-    $this->message = "Le mail de réinitialisation n'a pas pu être envoyé.";
+    $this->message = "The reset email could not be sent.";
 
   // mail to change password with a link to be followed
 ?>

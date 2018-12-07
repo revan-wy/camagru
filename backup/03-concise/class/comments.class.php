@@ -17,7 +17,7 @@ class Comments {
       $this->comment = $comment;
     }
     catch (Exception $e) {
-      die('Erreur : ' . $e->getMessage());
+      die('Error: ' . $e->getMessage());
     }
   }
 
@@ -28,7 +28,7 @@ class Comments {
       return $req->fetchAll(PDO::FETCH_ASSOC);
     }
     catch (Exception $e) {
-      die('Erreur : ' . $e->getMessage());
+      die('Error: ' . $e->getMessage());
     }
   }
 
@@ -46,7 +46,7 @@ class Comments {
       }
     }
     catch (Exception $e) {
-      die('Erreur : ' . $e->getMessage());
+      die('Error: ' . $e->getMessage());
     }
   }
 
@@ -59,7 +59,7 @@ class Comments {
       self::sendMailComment();
     }
     catch (Exception $e) {
-      die('Erreur : ' . $e->getMessage());
+      die('Error: ' . $e->getMessage());
     }
   }
 
@@ -69,7 +69,7 @@ class Comments {
       $req->execute(array($this->id_pic));
     }
     catch (Exception $e) {
-      die('Erreur : ' . $e->getMessage());
+      die('Error: ' . $e->getMessage());
     }
   }
 

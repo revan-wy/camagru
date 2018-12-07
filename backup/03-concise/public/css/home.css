@@ -1,5 +1,5 @@
 @media screen and (max-width: 660px){
-  .connexion, .inscription { padding: 1rem 2rem 1rem 2rem !important;}
+  .login, .inscription { padding: 1rem 2rem 1rem 2rem !important;}
 }
 
 body {
@@ -34,7 +34,7 @@ input {
   background-color: #18b294;
 }
 
-.connexion, .inscription {
+.login, .inscription {
   border: 2rem solid #edd15a;
   padding: 3rem 9rem 3rem 9rem;
   background-color: #fff099;

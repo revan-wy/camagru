@@ -37,7 +37,7 @@
       video.play();
     },
     function(err) {
-      console.log("An error occured! " + err);
+      console.log("An error occurred! " + err);
     }
   );
 
@@ -219,11 +219,11 @@ function displayError(msg) {
   error = document.createElement("DIV");
   error.setAttribute("id", "error");
   if (msg == "NoImg")
-    error.innerHTML = "Sélectionnez une image pour prendre <br />une photo.";
+    error.innerHTML = "Select an image to take <br /> a photo.";
   else if (msg == "NoUpload")
-    error.innerHTML = "Choisissez une image dans vos dossiers <br /> ne dépassant pas 1,5Mo.";
+    error.innerHTML = "Choose an image in your files <br /> not exceeding 1,5Mb.";
   else if (msg == "NoVideo")
-    error.innerHTML = "Activez votre webcam <br /> ou choisissez une image dans vos dossiers";
+    error.innerHTML = "Activate your webcam <br /> or choose an image in your folders";
   document.getElementById('column1').appendChild(error);
 }
 

@@ -5,13 +5,15 @@ require 'database.php';
 try {
   $pdo = new PDO($DB_DSN_FIRST, $DB_USER, $DB_PASSWORD);
   // set the PDO error mode to exception
-  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // ATTR_ERRMODE = Rapport d'erreur => ERRMODE_EXCEPTION = emet une exception (silent par defaut)
+  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // ATTR_ERRMODE = Error Report => ERRMODE_EXCEPTION = omit an exception (silent by default
+ 
+  )
 
   $sql = 'CREATE DATABASE IF NOT EXISTS db_camagru';
   $pdo->exec($sql);
 }
 catch (Exception $e) {
-    die('Erreur : ' . $e->getMessage());
+    die('Error : ' . $e->getMessage());
 }
 
 try {
@@ -52,7 +54,7 @@ try {
   $pdo->exec($sql);
 }
 catch (PDOException $e) {
-  die('Erreur : ' . $e->getMessage());
+  die('Error : ' . $e->getMessage());
 }
 
 $pdo = null;

@@ -7,7 +7,7 @@ function addLike(id) {
     var nb = elem.innerHTML;
     nb = parseInt(nb);
     nb++;
-    elem.innerHTML = nb+' j\'aime';
+    elem.innerHTML = nb+' like';
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "../app/savelike.php?id_pic="+id, true);
     xhr.send();
@@ -18,7 +18,7 @@ function addLike(id) {
     var nb = elem.innerHTML;
     nb = parseInt(nb);
     nb--;
-    elem.innerHTML = nb+' j\'aime';
+    elem.innerHTML = nb+' like';
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "../app/deletelike.php?id_pic="+id, true);
     xhr.send();

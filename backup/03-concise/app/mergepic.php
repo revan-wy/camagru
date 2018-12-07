@@ -21,5 +21,5 @@
   imagedestroy($img);
 
   // merge the picture from the webcam or uploaded ($_POST['pic']) with one of the three image chosen ($_POST['img'])
-  // imagecopy detemines the location of the image on the picture
+  // imagecopy determines the location of the image on the picture
 ?>

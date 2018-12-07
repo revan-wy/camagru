@@ -1,16 +1,16 @@
 <html>
   <head>
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <title>Nouveau mot de passe</title>
+    <title>Nouveau password</title>
     <link rel="stylesheet" href="../public/css/home.css">
     <link rel="stylesheet" href="../public/css/headerfooter.css">
   </head>
   <body>
     <?php include 'header.php'; ?>
-    <h2>Réinitialiser mot de passe</h2>
+    <h2>Reset password</h2>
     <form class="" action="#" method="post">
-      Nouveau mot de passe <br /><input type="password" name="new_passwd" value=""><br />
-      Confirmation mot de passe<br /><input type="password" name="new_passwd_verif" value=""><br />
+      Nouveau password <br /><input type="password" name="new_passwd" value=""><br />
+      Confirmation password<br /><input type="password" name="new_passwd_verif" value=""><br />
        <input id="buttonforgot" class="button" type="submit" name="submit" value="OK">
     </form>
     <?php

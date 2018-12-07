@@ -22,7 +22,7 @@ session_start() or die("Failed to resume session\n");
       $nbpic = $pic->nbPictures();
       $nbpage = ceil($nbpic / $nbpicbypage);
       if ($nbpic == 0): ?>
-        <p>Prenez votre première photo dans le Photobooth !</p>
+        <p>Take your first photo in the Photobooth!</p>
       <? elseif ($page > $nbpage || preg_match('/^[0-9]*$/', $page) == 0):
           echo '<script> location.replace("gallery.php?page=1") </script>';
       else:
@@ -54,7 +54,7 @@ session_start() or die("Failed to resume session\n");
             <button class="like" ><img src="../public/img/like.png"/></button>
           <? endif; ?>
           <label for="new_comment_<?= $id_pic ?>" class="comment"><img id="comment_<?= $id_pic ?>" src="../public/img/comment.png"/></label>
-          <span class="nblike" id="nblike_<?= $id_pic ?>"><?= $nblike ?> j'aime</span>
+          <span class="nblike" id="nblike_<?= $id_pic ?>"><?= $nblike ?> I love</span>
           </div>
           <div id="firstcomment_<?= $id_pic ?>">
             <? foreach ($comments as $line): ?>
@@ -64,7 +64,7 @@ session_start() or die("Failed to resume session\n");
           <form method="post">
           <?php if ($_SESSION['logged_user'] !== null): ?>
             <input type="text" maxlength="255" onkeypress="{if (event.keyCode == 13) { event.preventDefault(); addComment(<?= $id_pic ?>, this, '<?= $user ?>')}}"
-                class="inputcomment" id="new_comment_<?= $id_pic ?>" name="new_comment_<?= $id_pic ?>" placeholder="Ajouter un commentaire...">
+                class="inputcomment" id="new_comment_<?= $id_pic ?>" name="new_comment_<?= $id_pic ?>" placeholder="Add a comment...">
           <? endif; ?>
          </form>
          </div>
