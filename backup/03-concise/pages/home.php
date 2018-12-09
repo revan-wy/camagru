@@ -15,7 +15,7 @@
 <body>
   <h1 class=title id=maintitle>Camagru</h1>
   <div class="login">
-    <h2>Se connecter</h2>
+    <h2>To log in</h2>
     <form class="" action="#" method="post">
       login<br /><input type="text" name="login" value=""><br />
       password<br /><input type="password" name="passwd" value=""><br /><br />

@@ -70,7 +70,7 @@ class Users {
   	$date_creation = date("Y-m-d H:i:s");
     $token_expires = date("Y-m-d H:i:s", strtotime($date_creation . ' + 2 days'));
     try {
-      $req = $this->db->prepare("INSERT INTO `users` (`login`, `mot_de_passe`, `email`, `date_creation`, `token`, `token_expires`) VALUES (?, ?, ?, ?, ?, ?)");
+      $req = $this->db->prepare("INSERT INTO `users` (`login`, `password`, `email`, `date_creation`, `token`, `token_expires`) VALUES (?, ?, ?, ?, ?, ?)");
       $req->execute(array($this->login, hash('whirlpool', $this->passwd), $this->email, $date_creation, $token, $token_expires));
       $req = $this->db->prepare("DELETE FROM `users` WHERE `token_expires` < NOW() AND `confirm` = 0");
       $req->execute();
@@ -104,7 +104,7 @@ class Users {
         return $this->message = "The user name entered does not belong to any account.";
       if ($user['confirm'] == 0)
         return $this->message = "Your account has not been validated yet. <br /> Please follow the link received by email.";
-      if ($user['mot_de_passe'] != hash('whirlpool', $this->passwd))
+      if ($user['password'] != hash('whirlpool', $this->passwd))
         return $this->message = "Your password is incorrect.";
     }
     catch (Exception $e) {
@@ -144,7 +144,7 @@ class Users {
       self::checkPassword();
       if ($this->message != null)
         return ;
-      $req = $this->db->prepare("UPDATE `users` SET `mot_de_passe` = ? WHERE `token` = ?");
+      $req = $this->db->prepare("UPDATE `users` SET `password` = ? WHERE `token` = ?");
       $req->execute(array(hash('whirlpool', $this->passwd), $this->token));
       $this->message = "Your password has been changed.";
     }

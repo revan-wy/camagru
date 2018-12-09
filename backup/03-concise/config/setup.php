@@ -23,7 +23,7 @@ try {
   $sql = "CREATE TABLE IF NOT EXISTS `users` (
   `id_user` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   `login` VARCHAR(30) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
-  `mot_de_passe` VARCHAR(255) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
   `email` VARCHAR(255) NOT NULL,
   `date_creation` DATETIME NOT NULL,
   `confirm` BOOLEAN DEFAULT 0 NOT NULL,

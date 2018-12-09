@@ -68,7 +68,7 @@ if ($_SESSION['logged_user'] === null)
           <form method="post">
           <?php if ($_SESSION['logged_user'] !== null): ?>
             <input type="text" maxlength="255" onkeypress="{if (event.keyCode == 13) { event.preventDefault(); addComment(<?= $id_pic ?>, this, '<?= $user ?>')}}"
-                class="inputcomment" id="new_comment_<?= $id_pic ?>" name="new_comment_<?= $id_pic ?>" placeholder="Ajouter un commentaire...">
+                class="inputcomment" id="new_comment_<?= $id_pic ?>" name="new_comment_<?= $id_pic ?>" placeholder="add a comment...">
           <? endif; ?>
          </form>
          </div>

@@ -33,7 +33,7 @@ if ($_SESSION['logged_user'] === null)
             </label>
             <input id="uploadsubmitbutton" type="submit" value="Merge images" name="submit">
         </div>
-        <div class="apercu">
+        <div class="preview">
           <canvas id="canvas"></canvas><br />
           <button id="savebutton">Save</button>
         </div>
