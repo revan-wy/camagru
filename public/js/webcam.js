@@ -19,7 +19,7 @@
 		height = 240,
 		imgselected = 0;
 
-	navigator.getMedia = (navigator.getUserMedia ||
+	/*navigator.getMedia = (navigator.getUserMedia ||
 							navigator.webkitGetUserMedia ||
 							navigator.mozGetUserMedia ||
 							navigator.msGetUserMedia);
@@ -40,7 +40,13 @@
 		function(err) {
 			console.log("An error has occurred." + err);
 		}
-	);
+		);*/
+	if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+		navigator.mediaDevices.getUserMedia({video:true}).then(function(stream) {
+			video.srcObject = stream;
+			video.play();
+		});
+	}
 
 	video.addEventListener('canplay', function(ev){
 		if (!streaming) {
