@@ -1,0 +1,96 @@
+@media screen and (max-width: 660px){
+  .picgallery { padding: 1rem 2rem 1rem 2rem !important;}
+  .pic { width: 25rem !important;}
+  .pagenumber { width: 25rem !important;}
+}
+
+.allgallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.picgallery {
+  margin: 1rem 1rem 3rem 1rem;
+  padding: 1rem 8rem 1rem 8rem;
+  background-color: white;
+  border: 1px solid #ccc;
+  position: relative;
+}
+
+.pic {
+  width: 50rem;
+  margin: 0.5rem 0 0.5rem 0;
+  border-top: 1rem solid #b89675;
+  border-right: 1rem solid #7b654f;
+  border-bottom: 1rem solid #7b654f;
+  border-left: 1rem solid #a67c52;
+}
+
+.deletepic {
+  position: absolute;
+  cursor: pointer;
+  top: 5;
+  right: 5;
+}
+
+.likeandcomment {
+  display: flex;
+  align-items: center;
+}
+
+.like, .comment {
+  outline:none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.login {
+  margin-left: 0.5rem;
+  font-weight: bold;
+  font-family: Gill Sans, sans-serif;
+}
+
+.nblike {
+  font-weight: bold;
+  font-family: Gill Sans, sans-serif;
+  margin-left: 1rem;
+}
+
+.inputcomment {
+  outline:none;
+  border: 1px solid #ccc;
+  margin-top: 0.5rem;
+  width: 100%;
+  height: 2.5rem;
+}
+
+.allcomments {
+  margin-left: 0.5rem;
+  width: 50rem;
+  overflow-wrap: break-word;
+}
+
+.pages {
+  display: flex;
+  align-items: center;
+  color: #787878;
+  min-height: 4.5rem;
+}
+
+.pages a {
+  text-decoration: none;
+  font-size: 300%;
+  color:  #787878;
+}
+
+.pages a:hover {
+  color: #16A085;
+}
+
+.pagenumber {
+  width: 44rem;
+  text-align: center;
+  font-size: 120%;
+}

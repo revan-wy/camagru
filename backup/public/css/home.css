@@ -1,0 +1,68 @@
+@media screen and (max-width: 660px){
+	.login, .register { padding: 1rem 2rem 1rem 2rem !important;}
+}
+  
+body {
+	display: flex;
+	vertical-align: middle;
+	align-items: center;
+	flex-direction: column;
+}
+  
+#maintitle {
+	font-size: 5rem;
+}
+  
+h2 {
+	color: #00ff41;
+}
+  
+input {
+	width: 20rem;
+	outline:none;
+	background-color: black;
+	font-family: 'Courier New', Courier, monospace;
+	color: #00ff41;
+	text-shadow: 0px 0px 10px #75AD61;
+}
+  
+.button {
+	cursor: pointer;
+	border: solid 1px transparent;
+	background-color: #00ff41;
+	color: black;
+	outline:none;
+	font-family: 'Courier New', Courier, monospace;
+}
+  
+.button:hover {
+	background-color: #75AD61;
+}
+  
+/*.login, .register {
+	border: 2rem solid #edd15a;
+	padding: 3rem 9rem 3rem 9rem;
+	background-color: #fff099;
+}*/
+  
+.register {
+	margin-top: 2rem;
+}
+  
+#forgot, #galleryaccess {
+	text-decoration: none;
+	color: #7F8C8D;
+}
+  
+.galleryaccess {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+  
+#forgot:hover, #galleryaccess:hover {
+	color: #686f70;
+}
+  
+#buttonforgot {
+	margin-top: 1rem;
+}
