@@ -1,6 +1,6 @@
 {
 	"cSpell.words": [
-		"Camagru",
+		"Ajouter",
 		"ERRMODE",
 		"LONGBLOB",
 		"Photobooth",
@@ -10,11 +10,11 @@
 		"allgallery",
 		"allwebcam",
 		"buttonforgot",
-		"camsite",
+		"camagru",
+		"commentaire",
 		"deletelike",
 		"deletepic",
 		"displaypic",
-		"elem",
 		"endforeach",
 		"firstcomment",
 		"galleryaccess",
@@ -38,14 +38,10 @@
 		"nbpicbypage",
 		"newcanvas",
 		"noreply",
-		"opcache",
 		"pagenumber",
 		"picgallery",
-		"pics",
 		"pwrurl",
-		"quot",
 		"rawpic",
-		"revan",
 		"savebutton",
 		"savecomment",
 		"savelike",
@@ -55,9 +51,6 @@
 		"superimposable",
 		"uploadpic",
 		"uploadsubmitbutton",
-		"webcam",
-		"webcampreview",
-		"wethinkcode"
-	],
-	"cSpell.language": "en-GB"
+		"webcampreview"
+	]
 }

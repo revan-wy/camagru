@@ -67,7 +67,16 @@
 					</div>
 					<form method="post">
 						<?php if ($_SESSION['logged_user'] !== null): ?>
-							<input type="text" maxlength="255" onkeypress="{if (event.keyCode == 13) {event.preventDefault(); addComment(<?= $pic_id ?>, this, '<?= $user ?>')}}" class="inputcomment" id="new_comment_<?= $pic_id ?>" name="new_comment_<?= $pic_id ?>" placeholder="Add a comment...">
+							<input	type="text" 
+									maxlength="255" 
+									onkeypress="{if (event.keyCode == 13) {
+										event.preventDefault(); 
+										addComment(<?= $pic_id ?>, this, '<?= $user ?>')
+										}}" 
+									class="inputcomment" 
+									id="new_comment_<?= $pic_id ?>" 
+									name="new_comment_<?= $pic_id ?>" 
+									placeholder="Add a comment...">
 						<? endif; ?>
 					</form>
 				</div>
