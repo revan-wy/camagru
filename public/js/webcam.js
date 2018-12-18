@@ -18,7 +18,7 @@
 		width = 320,
 		height = 240,
 		imgselected = 0;
-
+	console.log("yay");
 	/*navigator.getMedia = (navigator.getUserMedia ||
 							navigator.webkitGetUserMedia ||
 							navigator.mozGetUserMedia ||
@@ -48,7 +48,7 @@
 		});
 	}
 
-	video.addEventListener('canplay', function(ev){
+	video.addEventListener('canplay', function(ev) {
 		if (!streaming) {
 			height = video.videoHeight / (video.videoWidth/width);
 			video.setAttribute('width', width);

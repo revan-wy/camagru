@@ -3,6 +3,11 @@
 	//remove before flight
 	ini_set('display_errors', 'On');
 
+	$headers = getallheaders();
+	if ($headers["Content-type"] == "application/x-www-form-urlencoded") {
+		$stuff = json_decode(file_get_contents("php://input"), true);
+		var_dump($stuff);
+	}
 	session_start();
 	$comment = $_POST['comment'];
 	$pic_id = $_POST['pic_id'];

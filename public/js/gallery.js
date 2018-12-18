@@ -1,4 +1,8 @@
 //untested 
+(function() {
+	console.log("gallery script loaded");
+})();
+
 function addLike(id)
 {
 	var src = document.getElementById('like_'+id).attributes.getNamedItem("src").value;
@@ -30,6 +34,8 @@ function addLike(id)
 
 function addComment(id, comment, login)
 {
+	//console.log("java function started");
+	console.log("id = "+id+", comment.value = "+comment.value+", login = "+login);
 	com = htmlEntities(comment.value);
 	if (com.trim() === "")
 		return ;

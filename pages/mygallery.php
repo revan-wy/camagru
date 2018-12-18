@@ -6,7 +6,27 @@
 	session_start();
 	if ($_SESSION['logged_user'] === null)
 		header("Location: ../index.php");
-
+	/*if ($_POST["comm-btn"]){
+		if ($_POST["commbox"]){
+			$pattern = array("#;#", "#=#", "#\"#");
+			$replace = array("%1", "%2", "%3");
+			$noinjectcomm = preg_replace($pattern, $replace, $_POST["commbox"]);
+			$statement = "INSERT INTO comments (imageID, username, comment) VALUES (";
+			$statement .= toQuote($_GET["imageID"]).", ".toQuote($_SESSION["username"]).", ".toQuote($noinjectcomm).")";
+			$db->runStatement($db->getDBConn(),$statement);
+			$_POST["commbox"] = "";
+			$statement = "SELECT * FROM images WHERE imageID = ".toQuote($_GET["imageID"]);
+			$out = $db->returnRecord($statement);
+			$user = $out[0]["username"];
+			$statement = "SELECT * FROM users WHERE username = ".toQuote($user);
+			$out = $db->returnRecord($statement);
+			$message = $_SESSION["username"]." commented on your image. Go to 127.0.0.1:8080/camagru/image.PHP?imageID=".$_GET["imageID"]." to check it out!";
+			if ($out[0]["notifications"]){
+				mail($out[0]["email"], "New Camagru Comment", $message);
+			}
+		}
+	}
+	print_r($_POST);*/
 ?>
 
 <html>
@@ -78,6 +98,7 @@
 									name="new_comment_<?= $pic_id ?>" 
 									placeholder="Add a comment...">
 						<? endif; ?>
+						<!--<input type='submit' class='btn1' value='Post Comment' name='comm-btn'>-->
 					</form>
 				</div>
 					<? endforeach; ?>
