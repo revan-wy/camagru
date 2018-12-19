@@ -6,7 +6,9 @@
 	session_start();
 	if ($_SESSION['logged_user'] === null)
 		header("Location: ../index.php");
-	/*if ($_POST["comm-btn"]){
+	
+	
+		/*if ($_POST["comm-btn"]){
 		if ($_POST["commbox"]){
 			$pattern = array("#;#", "#=#", "#\"#");
 			$replace = array("%1", "%2", "%3");

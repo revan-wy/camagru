@@ -35,23 +35,25 @@ function addLike(id)
 function addComment(id, comment, login)
 {
 	//console.log("java function started");
-	console.log("id = "+id+", comment.value = "+comment.value+", login = "+login);
 	com = htmlEntities(comment.value);
 	if (com.trim() === "")
-		return ;
+	return ;
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", "../app/savecomment.php", true);
 	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xhr.send("pic_id="+id+"&comment="+com);
+	console.log("id = "+id+", com = "+com+", login = "+login);
 	xhr.onreadystatechange = function () {
+		console.log("request");
 		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
 			var div = document.createElement("DIV");
 			div.setAttribute("class", "allcomments");
 			div.innerHTML = "<b>"+login+"</b> "+com;
 			document.getElementById('firstcomment_'+id).appendChild(div);
 			comment.value = "";
+			console.log(xhr.responseText);
 		}
 	}
+	xhr.send("pic_id="+id+"&comment="+com);
 }
 
 function htmlEntities(str) {

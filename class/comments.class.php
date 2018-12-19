@@ -5,25 +5,32 @@
 
 class Comments {
 
-	private $db;
-	private $pic_id;
-	private $login;
-	private $comments;
+	public $db;
+	public $pic_id;
+	public $login;
+	public $comments;
 
 	public function __construct($pic_id, $login, $comment) {
 		try {
 			require '../config/database.php';
 			$this->db = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
 			$this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$this->$pic_id = $pic_id;
+			$this->pic_id = $pic_id;
 			$this->login = $login;
-			$this->comment = $comment;
+			$this->comments = $comment;
 		}
 		catch (Exception $e) {
 			die('Error: '.$e->getMessage());
 		}
 	}
-
+	public function setPicId($id)
+	{
+		$this->pic_id = $id; 
+	}
+	public function getPicId()
+	{
+		return $this->pic_id; 
+	}
 	public function getComment() {
 		try {
 			$req = $this->db->prepare("SELECT * FROM `comments` WHERE `pic_id` = ?");
@@ -58,7 +65,7 @@ class Comments {
 			date_default_timezone_set('Africa/Johannesburg');
 			$date_created = date("Y-m-d H:i:s");
 			$req = $this->db->prepare("INSERT INTO `comments` (`pic_id`, `comment`, `login`, `date_created`) VALUES (?, ?, ?, ?)");
-			$req->execute(array($this->pic_id, $this->comment, $this->login, $date_created));
+			$req->execute(array($this->pic_id, $this->comments, $this->login, $date_created));
 			self::sendMailComment();
 		}
 		catch (Exception $e) {
