@@ -13,7 +13,10 @@ function addLike(id)
 		var nb = elem.innerHTML;
 		nb = parseInt(nb);
 		nb++;
-		elem.innerHTML = nb+'Like';
+		if (nb == 1)
+			elem.innerHTML = nb+' Like';
+		else
+			elem.innerHTML = nb+' Likes';
 		var xhr = new XMLHttpRequest();
 		xhr.open("GET", "../app/savelike.php?pic_id="+id, true);
 		xhr.send();
@@ -25,7 +28,10 @@ function addLike(id)
 		var nb = elem.innerHTML;
 		nb = parseInt(nb);
 		nb--;
-		elem.innerHTML = nb+'Like';
+		if (nb == 1)
+			elem.innerHTML = nb+' Like';
+		else
+			elem.innerHTML = nb+' Likes';
 		var xhr = new XMLHttpRequest();
 		xhr.open("GET", "../app/deletelike.php?pic_id="+id, true);
 		xhr.send();
@@ -59,6 +65,11 @@ function addComment(id, comment, login)
 function htmlEntities(str) {
 	return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
+
+/*function htmlEntities(str) {
+    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}*/
+
 
 function deletePicture(id) {
 	document.getElementById('delete_'+id).parentNode.remove();

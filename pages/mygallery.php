@@ -74,17 +74,34 @@
 							<? if ($liked === false): ?>
 								<button onclick="addLike(<?= $pic_id ?>)" class="like"><img id=like_<?= $pic_id ?> src="../public/img/like.png"/></button>
 							<? else: ?>
-								<button onclick="addLike(<?= $pic_id ?>)" class="like"><img id=like_<?= $pic_id ?> src="../public/img/like_red.png"></button>
+								<button onclick="addLike(<?= $pic_id ?>)"
+									class="like"><img id=like_<?= $pic_id ?>
+									src="../public/img/like_red.png">
+								</button>
 							<? endif; ?>
 						<? else: ?>
 							<button class="like"><img src="../public/img/like.png"></button>
 						<? endif; ?>
 						<label for="new_comment_<?= $pic_id ?>" class="comment"><img id="comment_<?= $pic_id ?>" src="../public/img/comment.png"></label>
-						<span class="nblike" id="nblike_<?= $pic_id ?>"><?= $nblike ?>Like</span>
+						<span	class="nblike" 
+								id="nblike_<?= $pic_id ?>">
+							<?= $nblike ?>
+							<?
+								if ($nblike == 1)
+									echo " Like";
+								else
+									echo " Likes";
+							?>
+						</span>
 					</div>
 					<div id="firstcomment_<?= $pic_id ?>">
 						<? foreach ($comments as $line): ?>
-							<div class="allcomments"><b><?= $line['login'] ?></b><?= $line['comment'] ?></div>
+							<div class="allcomments">
+								<b>
+									<?= $line['login'] ?>
+								</b>
+								<?= $line['comment'] ?>
+							</div>
 						<? endforeach; ?>
 					</div>
 					<form method="post">

@@ -34,7 +34,10 @@
 					require '../class/comments.class.php';
 					foreach ($pics as $value):
 						$pic_id = $value['pic_id'];
-						$user = $_SESSION['logged_user'];
+						if (isset($_SESSION['logged_user']))
+							$user = $_SESSION['logged_user'];
+						else
+							$user = null;
 						$like = new Likes($pic_id, $user);
 						$liked = $like->getLike();
 						$nblike = $like->nbLike();
@@ -42,10 +45,10 @@
 						$comments = $comment->getComment();
 			?>
 			<div class="picgallery">
-				<div class="login" id="login_<?= $pic_id ?>"><?= $value['login'] ?></div>
+				<div class="login" id="login_<?= $pic_id ?>"><?= $value['login'].' posted:' ?></div>
 				<img class="pic" id="pic_<?= $pic_id ?>" src="data:image/jpeg;base64,<?= base64_encode($value['pic'])?>"/>
 				<div class="likeandcomment">
-					<? if ($_SESSION['logged_user'] !== null): ?>
+					<? if (isset($_SESSION['logged_user'])): //!== null): ?>
 						<? if ($liked === false): ?>
 							<button onclick="addLike(<?= $pic_id ?>)" class="like" ><img id=like_<?= $pic_id ?> src="../public/img/like.png"/></button>
 						<? else: ?>
@@ -54,8 +57,17 @@
 					<? else: ?>
 						<button class="like"><img src="../public/img/like.png"/></button>
 					<?endif;?>
-					<label for="new_comment_<?= $pic_id?>" class="comment"><img id="comment_<?= $pic_id?>" src="../public/img/comment.png"></label>
-					<span class="nblike" id="nblike_<?= $pic_id?>"><?$nblike?>Like</span>
+					<label	for="new_comment_<?= $pic_id?>" class="comment"><img id="comment_<?= $pic_id?>" src="../public/img/comment.png"></label>
+					<span	class="nblike" 
+							id="nblike_<?= $pic_id?>">
+						<?= $nblike?>
+						<?
+								if ($nblike == 1)
+									echo " Like";
+								else
+									echo " Likes";
+							?>
+					</span>
 				</div>
 				<div id="firstcomment_<?= $pic_id?>">
 					<?foreach ($comments as $line):?>
@@ -63,7 +75,8 @@
 					<?endforeach;?>
 				</div>
 				<form method="post">
-					<?php if ($_SESSION['logged_user'] !== null):?>
+					<?//= 'blank'.null.'blank';?>
+					<?if (isset($_SESSION['logged_user'] /*!== null*/)):?>
 						<input type="text" maxlength="255" onkeypress="{if (event.keyCode == 13) {event.preventDefault(); addComment(<?= $pic_id?>, this, '<?= $user?>')}}" 
 								class="inputcomment" id="new_comment_<?= $pic_id?>" name="new_comment_<?= $pic_id?>" placeholder="Add a comment...">
 					<?endif;?>

@@ -8,7 +8,7 @@
 	$headers .= "From: camagru-noreply@student.wethinkcode.co.za\n";
 	$mailbody = "<html><body>";
 	$mailbody .= "<p>Hi, ".$login_pic."</p>";
-	$mailbody .= "<p>".$this->login." posted a new comment on your picture: \"".$this->comment."\"</p>";
+	$mailbody .= "<p>".$this->login." posted a new comment on your picture: \"".$this->comments."\"</p>";
 	$mailbody .= "<p>Regards,</p>";
 	$mailbody .= "<p>Camagru</p>";
 	$mailbody .= "</body></html>";

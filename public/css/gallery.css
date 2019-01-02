@@ -13,18 +13,18 @@
 .picgallery {
 	margin: 1rem 1rem 3rem 1rem;
 	padding: 1rem 8rem 1rem 8rem;
-	background-color: white;
-	border: 1px solid #ccc;
+	/*background-color: white;*/
+	/*border: 1px solid #ccc;*/
 	position: relative;
 }
 
 .pic {
 	width: 50rem;
 	margin: 0.5rem 0 0.5rem 0;
-	border-top: 1rem solid #b89675;
+	/*border-top: 1rem solid #b89675;
 	border-right: 1rem solid #7b654f;
 	border-bottom: 1rem solid #7b654f;
-	border-left: 1rem solid #a67c52;
+	border-left: 1rem solid #a67c52;*/
 }
 
 .deletepic {
@@ -49,12 +49,12 @@
 .login {
 	margin-left: 0.5rem;
 	font-weight: bold;
-	font-family: Gill Sans, sans-serif;
+	font-family: 'Courier New', Courier, monospace;
 }
 
 .nblike {
 	font-weight: bold;
-	font-family: Gill Sans, sans-serif;
+	font-family: 'Courier New', Courier, monospace;
 	margin-left: 1rem;
 }
 

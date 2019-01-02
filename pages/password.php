@@ -1,13 +1,13 @@
 <html> 
 	<head>
 		<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-		<title>New Password</title>
+		<title>Change Password</title>
 		<link rel="stylesheet" href="../public/css/home.css">
 		<link rel="stylesheet" href="../public/css/headerfooter.css">
 	</head>
 	<body>
 		<?php include 'header.php'; ?>
-		<h2>Reset Password</h2>
+		<h2>Change Password</h2>
 		<form class="" action="#" method="post">
 			New Password<br /><input type="password" name="new_passwd" value=""><br />
 			Confirm New Password<br /><input type="password" name="new_passwd_verif" value=""><br />
