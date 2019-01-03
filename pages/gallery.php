@@ -34,8 +34,8 @@
 					require '../class/comments.class.php';
 					foreach ($pics as $value):
 						$pic_id = $value['pic_id'];
-						if (isset($_SESSION['logged_user']))
-							$user = $_SESSION['logged_user'];
+						if (isset($_SESSION['active_user']))
+							$user = $_SESSION['active_user'];
 						else
 							$user = null;
 						$like = new Likes($pic_id, $user);
@@ -48,7 +48,7 @@
 				<div class="login" id="login_<?= $pic_id ?>"><?= $value['login'].' posted:' ?></div>
 				<img class="pic" id="pic_<?= $pic_id ?>" src="data:image/jpeg;base64,<?= base64_encode($value['pic'])?>"/>
 				<div class="likeandcomment">
-					<? if (isset($_SESSION['logged_user'])): //!== null): ?>
+					<? if (isset($_SESSION['active_user'])): //!== null): ?>
 						<? if ($liked === false): ?>
 							<button onclick="addLike(<?= $pic_id ?>)" class="like" ><img id=like_<?= $pic_id ?> src="../public/img/like.png"/></button>
 						<? else: ?>
@@ -76,7 +76,7 @@
 				</div>
 				<form method="post">
 					<?//= 'blank'.null.'blank';?>
-					<?if (isset($_SESSION['logged_user'] /*!== null*/)):?>
+					<?if (isset($_SESSION['active_user'] /*!== null*/)):?>
 						<input type="text" maxlength="255" onkeypress="{if (event.keyCode == 13) {event.preventDefault(); addComment(<?= $pic_id?>, this, '<?= $user?>')}}" 
 								class="inputcomment" id="new_comment_<?= $pic_id?>" name="new_comment_<?= $pic_id?>" placeholder="Add a comment...">
 					<?endif;?>

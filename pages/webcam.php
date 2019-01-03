@@ -4,7 +4,7 @@
 	ini_set('display_errors', 'On');
 
 	session_start();
-	if ($_SESSION['logged_user'] === null)
+	if ($_SESSION['active_user'] === null)
 		header("Location: ../index.php");
 
 ?>
@@ -45,7 +45,7 @@
 			<aside id="side">
 				<?php
 					require '../class/pictures.class.php';
-					$pic = new Pictures("", "", $_SESSION['logged_user']);
+					$pic = new Pictures("", "", $_SESSION['active_user']);
 					$res = $pic->getPicture();
 						foreach ($res as $value): ?>
 							<div class="displaypic">

@@ -14,7 +14,7 @@
 	//debug_to_console($comment);
 	require '../class/comments.class.php';
 	if ($comment !== null) {
-		$com = new Comments($pic_id, $_SESSION['logged_user'], $comment);
+		$com = new Comments($pic_id, $_SESSION['active_user'], $comment);
 		$com->addComment();
 	}
 	//$com->setPicId($pic_id);

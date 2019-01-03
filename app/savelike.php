@@ -6,7 +6,7 @@
 	session_start();
 	$pic_id = $_GET['pic_id'];
 	require '../class/likes.class.php';
-	$db = new Likes($pic_id, $_SESSION['logged_user']);
+	$db = new Likes($pic_id, $_SESSION['active_user']);
 	$db->addLike();
 
 ?>

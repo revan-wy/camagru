@@ -4,7 +4,7 @@
 	ini_set('display_errors', 'On');
 
 	session_start();
-	if ($_SESSION['logged_user'] === null)
+	if ($_SESSION['active_user'] === null)
 		header("Location: ../index.php");
 	
 	
@@ -43,7 +43,7 @@
 		<main class="allgallery">
 			<?php 
 				require '../class/pictures.class.php';
-				$pic = new Pictures("", "", $_SESSION['logged_user']);
+				$pic = new Pictures("", "", $_SESSION['active_user']);
 				$nbpicbypage = 5;
 				$page = isset($_GET['page']) ? $_GET['page'] : 1;
 				$nbpic = $pic->nbPicturesByLogin();
@@ -58,7 +58,7 @@
 					require '../class/comments.class.php';
 					foreach ($pics as $value):
 						$pic_id = $value['pic_id'];
-						$user = $_SESSION['logged_user'];
+						$user = $_SESSION['active_user'];
 						$like = new Likes($pic_id, $user);
 						$liked = $like->getLike();
 						$nblike = $like->nbLike();
@@ -70,7 +70,7 @@
 					<img class="pic" id="pic_<?= $pic_id?>" src="data:image/jpeg;base64,<?= base64_encode($value['pic'])?>">
 					<img class="deletepic" id="delete_<?= $pic_id?>" onclick="deletePicture(<?= $pic_id?>)" src="../public/img/delete.png">
 					<div class="likeandcomment">
-						<? if ($_SESSION['logged_user'] !== null): ?>
+						<? if ($_SESSION['active_user'] !== null): ?>
 							<? if ($liked === false): ?>
 								<button onclick="addLike(<?= $pic_id ?>)" class="like"><img id=like_<?= $pic_id ?> src="../public/img/like.png"/></button>
 							<? else: ?>
@@ -105,7 +105,7 @@
 						<? endforeach; ?>
 					</div>
 					<form method="post">
-						<?php if ($_SESSION['logged_user'] !== null): ?>
+						<?php if ($_SESSION['active_user'] !== null): ?>
 							<input	type="text" 
 									maxlength="255" 
 									onkeypress="{if (event.keyCode == 13) {

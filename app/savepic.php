@@ -7,7 +7,7 @@
 	$rawpic = $_POST['pic'];
 	$pic = base64_decode($rawpic);
 	require '../class/pictures.class.php';
-	$db = new Pictures("", $pic, $_SESSION['logged_user']);
+	$db = new Pictures("", $pic, $_SESSION['active_user']);
 	$pic_id = $db->addPicture();
 	echo json_encode($pic_id);
 

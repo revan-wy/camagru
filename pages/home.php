@@ -39,7 +39,7 @@
 						echo '<div style="color:red;">'.$db->message.'</div>';
 					else
 					{
-						$_SESSION['logged_user'] = $login;
+						$_SESSION['active_user'] = $login;
 						echo '<script> location.replace("../index.php"); </script>';
 					}
 				}

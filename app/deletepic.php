@@ -6,7 +6,7 @@
 	session_start();
 	$pic_id = $_GET['pic_id'];
 	require '../class/pictures.class.php';
-	$db = new Pictures($pic_id, "", $_SESSION['logged_user']);
+	$db = new Pictures($pic_id, "", $_SESSION['active_user']);
 	$db->deletePicture();
 	require '../class/likes.class.php';
 	$like = new Likes($pic_id, "");
