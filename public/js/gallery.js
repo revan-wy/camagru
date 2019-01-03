@@ -1,6 +1,6 @@
 //untested 
 (function() {
-	console.log("gallery script loaded");
+	//console.log("gallery script loaded");
 })();
 
 function addLike(id)
@@ -47,9 +47,9 @@ function addComment(id, comment, login)
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", "../app/savecomment.php", true);
 	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	console.log("id = "+id+", com = "+com+", login = "+login);
+	//console.log("id = "+id+", com = "+com+", login = "+login);
 	xhr.onreadystatechange = function () {
-		console.log("request");
+		//console.log("request");
 		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
 			var div = document.createElement("DIV");
 			div.setAttribute("class", "allcomments");

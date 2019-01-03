@@ -18,7 +18,7 @@
 		width = 320,
 		height = 240,
 		imgselected = 0;
-	console.log("yay");
+	//console.log("yay");
 	/*navigator.getMedia = (navigator.getUserMedia ||
 							navigator.webkitGetUserMedia ||
 							navigator.mozGetUserMedia ||
@@ -38,7 +38,7 @@
 			video.play();
 		},
 		function(err) {
-			console.log("An error has occurred." + err);
+			//console.log("An error has occurred." + err);
 		}
 		);*/
 	if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
