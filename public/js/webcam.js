@@ -226,11 +226,11 @@
 	error = document.createElement("DIV");
 	error.setAttribute("id", "error");
 	if (msg == "NoImg")
-	  error.innerHTML = "Select an image to take <br /> a photo.";
+	  error.innerHTML = "Select a sticker to continue.";
 	else if (msg == "NoUpload")
-	  error.innerHTML = "Choose an image in your files <br /> not exceeding 1,5Mo.";
+	  error.innerHTML = "Choose an image in your files <br /> not exceeding 1.5MB.";
 	else if (msg == "NoVideo")
-	  error.innerHTML = "Activate your webcam <br /> or choose an image in your folders";
+	  error.innerHTML = "Allow access to your webcam <br /> or choose an image in your folders";
 	document.getElementById('column1').appendChild(error);
   }
   
