@@ -21,22 +21,24 @@
 		<div class="allwebcam">
 			<main class="webcampreview">
 				<div class="webcam" id="column1">
-					<video id="video"></video><br />
-					<button id="startbutton">Shutter, go!</button>
 					<button id="img1" style=background-color:#f2f2f2><img src="../public/img/image1.png" width=100/></button>
 					<button id="img2" style=background-color:#f2f2f2><img src="../public/img/image2.png" width=100/></button>
 					<button id="img3" style=background-color:#f2f2f2><img src="../public/img/image3.png" width=100/></button>
+					<br />
+					<video id="video"></video>
+					<button id="startbutton">Shutter, go!</button>
 					<p>
 						OR<br />
-						Upload a picture<br /><span id="paragraph">(jpeg/png; not more than 1.5 MB)</span>
+						Upload a picture<br /><span id="paragraph">(jpeg/png; < 1.5 MB)</span>
 					</p>
 					<label class="file" title="">
 						<input type="file" accept="image/*" name="uploadpic" id="uploadpic" onchange="this.parentNode.setAttribute('title', this.value.replace(/^.*[\\/]/,''))"/>
 					</label>
 					<input id="uploadsubmitbutton" type="submit" value="Merge Images" name="submit">
+					<br />
 				</div>
 				<div class="preview">
-					<canvas id="canvas"></canvas><br />
+					<canvas id="canvas"></canvas>
 					<button id="savebutton">Save</button>
 				</div>
 			</main><br />
