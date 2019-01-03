@@ -73,7 +73,7 @@ class Comments {
 		}
 	}
 
-	public function deleteAllComment() {
+	public function deleteAllComments() {
 		try {
 			$req = $this->db->prepare("DELETE FROM `comments` WHERE `pic_id` = ?");
 			$req->execute(array($this->pic_id));

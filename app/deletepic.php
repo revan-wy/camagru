@@ -13,6 +13,6 @@
 	$like->deleteAllLikes();
 	require '../class/comments.class.php';
 	$comment = new Comments($pic_id, "", "");
-	$comment->deleteAllComment();
+	$comment->deleteAllComments();
 
 ?>
