@@ -56,7 +56,7 @@
 			</form>
 		</div>
 		<div class="galleryaccess">
-			<a href="gallery.php" id="galleryaccess">Access gallery without login</a>
+			<a href="gallery.php" id="galleryaccess">Guest gallery access</a>
 		</div>
 		<?php
 			if (isset($_POST['new_login']))
