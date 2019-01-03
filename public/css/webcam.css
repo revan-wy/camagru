@@ -36,7 +36,7 @@ aside {
 }
   
 #canvas {
-	background-color: #fff099;
+	/*background-color: #fff099;*/
 	border: 2px solid #7b654f;
 	height: 24rem;
 	margin-bottom: 0.5rem;
@@ -93,7 +93,7 @@ aside {
 }
   
 .webcam p {
-	color: #16A085;
+	/*color: #16A085;*/
 	text-align: center;
 	font-size: 2rem;
 	margin: 1rem 0 1rem 0;
