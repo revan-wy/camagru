@@ -4,8 +4,7 @@
 <?=			'Camagru';?>
 		</div>
 		<nav>
-<? 			if (isset($_SESSION['logged_user'])):
-				//if ($_SESSION['logged_user'] !== null):?>
+<? 			if (isset($_SESSION['logged_user'])):?>
 					<a id="" href="webcam.php">Photobooth</a>
 					<a id="" href="mygallery.php">My&nbsp;Gallery</a>
 					<a id="" href="gallery.php?page=1">Main&nbsp;Gallery</a>

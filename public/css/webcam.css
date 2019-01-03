@@ -36,7 +36,6 @@ aside {
 }
   
 #canvas {
-	/*background-color: #fff099;*/
 	border: 2px solid #7F8C8D;
 	height: 24rem;
 	margin-bottom: 0.5rem;
@@ -111,7 +110,6 @@ label.file input {
 }
   
 label.file {
-	/*width: 0%; /* Use for fluid design */
 	min-width: 30rem;
 	height: 3rem;
 	line-height: 2.8rem!important;
@@ -138,7 +136,6 @@ label.file:before {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	text-align: center;
-	/*vertical-align: middle;*/
 }
   
 label.file[title]:not([title=""]):before{

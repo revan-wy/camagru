@@ -1,4 +1,3 @@
-//untested 
 (function() {
 	//console.log("gallery script loaded");
 })();
@@ -65,11 +64,6 @@ function addComment(id, comment, login)
 function htmlEntities(str) {
 	return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
-
-/*function htmlEntities(str) {
-    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-}*/
-
 
 function deletePicture(id) {
 	document.getElementById('delete_'+id).parentNode.remove();

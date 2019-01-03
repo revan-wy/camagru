@@ -1,5 +1,3 @@
-//untested and incomplete
-
 (function() {
 	var streaming = false,
 		video = document.querySelector('#video'),
