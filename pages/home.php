@@ -85,5 +85,6 @@
 				}
 			}
 		?>
+		<footer></footer>
 	</body>
 </html>

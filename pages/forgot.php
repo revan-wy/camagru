@@ -24,5 +24,6 @@
 							echo '<p style="color:red;">'.$db->message.'</p>';
 					}
 		?>
+		<footer></footer>
 	</body>
 </html>

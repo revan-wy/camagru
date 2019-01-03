@@ -96,5 +96,6 @@
 		</main>
 		<footer></footer>
 		<script type="text/javascript" src="../public/js/gallery.js"></script>
+		<footer></footer>
 	</body>
 </html>
