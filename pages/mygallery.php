@@ -123,11 +123,11 @@
 					<? endforeach; ?>
 					<div class="pages">
 						<? if ($page != 1): ?>
-							<a href="mygallery.php?page=<?= ($page - 1) ?>" class="previous">Previous</a>
+							<a href="mygallery.php?page=<?= ($page - 1) ?>" class="previous"><<</a>
 						<? endif; ?>
 						<span class="pagenumber"><b><?= $page ?></b></span>
 						<? if ($page != $nbpage): ?>
-							<a href="mygallery.php?page=<?= ($page + 1) ?>" class="next">Next</a>
+							<a href="mygallery.php?page=<?= ($page + 1) ?>" class="next">>></a>
 						<? endif; ?>
 					<? endif; ?>
 					</div>

@@ -1,7 +1,8 @@
 @media screen and (max-width: 660px){
 	.picgallery { padding: 1rem 2rem 1rem 2rem !important;}
 	.pic { width: 25rem !important;}
-	.pagenumber { width: 25rem !important;}
+	.pagenumber { width: 12rem !important;}
+	.allcomments { width: 25rem !important;}
 }
   
 .allgallery {
