@@ -228,7 +228,7 @@
 	else if (msg == "NoUpload")
 	  error.innerHTML = "Choose an image in your files <br /> not exceeding 1.5MB.";
 	else if (msg == "NoVideo")
-	  error.innerHTML = "Allow access to your webcam <br /> or choose an image in your folders";
+	  error.innerHTML = "Allow access to your webcam <br /> or upload an image.";
 	document.getElementById('column1').appendChild(error);
   }
   
