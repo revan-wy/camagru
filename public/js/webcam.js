@@ -235,7 +235,7 @@
   function deletePicture(id) {
 	var elem = document.getElementById('delete_'+id).parentNode.remove();
 	var xhr = new XMLHttpRequest();
-	xhr.open("GET", "../app/deletepic.php?id_pic="+id, true);
+	xhr.open("GET", "../app/deletepic.php?pic_id="+id, true);
 	xhr.send();
   }
   
