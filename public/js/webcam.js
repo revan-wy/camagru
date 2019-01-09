@@ -1,9 +1,9 @@
 (function() {
 	var streaming = false,
 		video = document.querySelector('#video'),
-		cover = document.querySelector('#cover'),
+		//cover = document.querySelector('#cover'),
 		canvas = document.querySelector('#canvas'),
-		photo = document.querySelector('#photo'),
+		//photo = document.querySelector('#photo'),
 		startbutton = document.querySelector('#startbutton'),
 		savebutton = document.querySelector('#savebutton'),
 		img1 = document.querySelector('#img1'),
@@ -17,28 +17,6 @@
 		height = 240,
 		imgselected = 0;
 	//console.log("yay");
-	/*navigator.getMedia = (navigator.getUserMedia ||
-							navigator.webkitGetUserMedia ||
-							navigator.mozGetUserMedia ||
-							navigator.msGetUserMedia);
-	navigator.getMedia(
-		{
-			video: true,
-			audio: false
-		},
-		function(stream) {
-			if (navigator.mozGetUserMedia) {
-				video.mozSrcObject = stream;
-			} else {
-				var vendorURL = window.URL || window.webkitURL;
-				video.src = vendorURL.createObjectURL(stream);
-			}
-			video.play();
-		},
-		function(err) {
-			//console.log("An error has occurred." + err);
-		}
-		);*/
 	if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 		navigator.mediaDevices.getUserMedia({video:true}).then(function(stream) {
 			video.srcObject = stream;
