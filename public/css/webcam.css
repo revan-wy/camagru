@@ -62,8 +62,8 @@ aside {
 	cursor: pointer;
 	border: solid 1px transparent;
 	background-color: #75AD61;
-	color: #fff;
-	font-family: Gill Sans, sans-serif;
+	/*color: #fff;*/
+	font-family: 'Courier New', Courier, monospace;
 	font-size: 1.5rem;
 	width: 32rem;
 	outline: none;
