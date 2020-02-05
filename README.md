@@ -1,4 +1,4 @@
-# camsite
+# Camagru
 
 WeThinkCode Web Project
 
